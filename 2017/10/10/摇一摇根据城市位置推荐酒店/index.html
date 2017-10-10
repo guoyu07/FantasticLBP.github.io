@@ -1,329 +1,164 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html lang="z">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="home," />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="###摇一摇根据城市位置推荐酒店客户端### 1、实现摇一摇并震动需要导入头文件。#import  2、当前城市定位，可以看我之前的文字快速定位 3、让vc支持摇一摇。 12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES; 4、关键代码在移动的时候将">
-<meta name="keywords" content="home">
-<meta property="og:type" content="article">
-<meta property="og:title" content="摇一摇根据城市位置推荐酒店">
-<meta property="og:url" content="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/index.html">
-<meta property="og:site_name" content="杭城小刘">
-<meta property="og:description" content="###摇一摇根据城市位置推荐酒店客户端### 1、实现摇一摇并震动需要导入头文件。#import  2、当前城市定位，可以看我之前的文字快速定位 3、让vc支持摇一摇。 12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES; 4、关键代码在移动的时候将">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://static.oschina.net/uploads/img/201705/01101002_gBbo.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2287777-9e1f741fb37dcc31.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-10-10T06:50:30.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="摇一摇根据城市位置推荐酒店">
-<meta name="twitter:description" content="###摇一摇根据城市位置推荐酒店客户端### 1、实现摇一摇并震动需要导入头文件。#import  2、当前城市定位，可以看我之前的文字快速定位 3、让vc支持摇一摇。 12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES; 4、关键代码在移动的时候将">
-<meta name="twitter:image" content="https://static.oschina.net/uploads/img/201705/01101002_gBbo.png">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/"/>
-
-
-
-
-
-  <title>摇一摇根据城市位置推荐酒店 | 杭城小刘</title>
-  
-
-
-
-
-
-
-
-
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>摇一摇根据城市位置推荐酒店 | 杭城小刘</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="摇一摇根据城市位置推荐酒店 | 杭城小刘">
+    <meta name="twitter:description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="摇一摇根据城市位置推荐酒店 | 杭城小刘">
+    <meta property="og:description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    
+    <meta name="author" content="杭城小刘">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/"/>
+
+                 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
 
-  
-  
     
-  
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">杭城小刘</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <a href="/" title="前往 杭城小刘 的主页"><img src="/images/avatar.JPG" width="80" alt="杭城小刘 logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 杭城小刘">杭城小刘</a></h1>
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
 
-      
-    </ul>
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/">home</a></li>
+            
+              <li class="navigation__item"><a href="/about">about</a></li>
+            
+              <li class="navigation__item"><a href="/archives/">archives</a></li>
+            
+              <li class="navigation__item"><a href="/categories/index.html">categories</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/FantasticLBP" title="GitHub" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
   
 
+<!-- Facebook -->
+
   
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
 </nav>
 
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杭城小刘">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杭城小刘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">摇一摇根据城市位置推荐酒店</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
-                2017-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
-      
-      
+    </div>
 
-      
-        <p>###摇一摇根据城市位置推荐酒店客户端###</p>
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-meta__tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+ </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">摇一摇根据城市位置推荐酒店</h1>
+  </header>
+
+  <section class="post">
+    <p>###摇一摇根据城市位置推荐酒店客户端###</p>
 <p>1、实现摇一摇并震动需要导入头文件。#import <audiotoolbox audiotoolbox.h=""></audiotoolbox></p>
 <p>2、当前城市定位，可以看我之前的文字<a href="http://www.jianshu.com/p/b9f8881292ab" target="_blank" rel="external">快速定位</a></p>
 <p>3、让vc支持摇一摇。</p>
@@ -343,355 +178,108 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">/**</div><div class="line">* Created by PhpStorm.</div><div class="line">* User: geek</div><div class="line">* Date: 2017/3/9</div><div class="line">* Time: 上午9:24</div><div class="line">*/</div><div class="line"></div><div class="line">header(&apos;content-type:text.html;charset=utf-8&apos;);</div><div class="line">error_reporting(0);</div><div class="line">require_once &apos;../../model/PdoMySQL.class.php&apos;;</div><div class="line">require_once &apos;../../model/config.php&apos;;</div><div class="line">require_once &apos;Response.php&apos;;</div><div class="line"></div><div class="line"></div><div class="line">class RandomHotel</div><div class="line">&#123;</div><div class="line">private $tableName = &quot;hotel&quot;;</div><div class="line">private $key = &quot;&quot;;</div><div class="line">private $city = &quot;&quot;;</div><div class="line"></div><div class="line">protected static $_instance = null;</div><div class="line"></div><div class="line">private function __construct()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">private function __clone()</div><div class="line">&#123;</div><div class="line">// TODO: Implement __clone() method.</div><div class="line">&#125;</div><div class="line"></div><div class="line">public function sharedInstance()&#123;</div><div class="line">if(self::$_instance == null)&#123;</div><div class="line">self::$_instance = new self();</div><div class="line">&#125;</div><div class="line">return self::$_instance;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">private function random($start,$end)&#123;</div><div class="line">$tmp=array();</div><div class="line">while(count($tmp)&lt;1)&#123;</div><div class="line">$tmp[]=mt_rand($start,$end);</div><div class="line">$tmp=array_unique($tmp);</div><div class="line">&#125;</div><div class="line">return $tmp[0]-1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public function getHotel()&#123;</div><div class="line">$mysqlPdo = new PdoMySQL();</div><div class="line"></div><div class="line">self.$this-&gt;key = $_REQUEST[&quot;key&quot;];</div><div class="line">self.$this-&gt;city = $_REQUEST[&quot;city&quot;];</div><div class="line"></div><div class="line">if($this-&gt;key == &quot;&quot; || $this-&gt;key !== &quot;TheHotelReversationApplication&quot; )&#123;</div><div class="line">Response::show(201,&quot;fail&quot;,&quot;非安全的数据请求&quot;,&quot;json&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$pdo=new PdoMySQL();</div><div class="line">$res = $pdo-&gt;find($this-&gt;tableName,&quot;address like &apos;%&quot;.$this-&gt;city.&quot;%&apos;&quot;);</div><div class="line"></div><div class="line">$random = $this-&gt;random(1,count($res));</div><div class="line"></div><div class="line">if($res)&#123;</div><div class="line">//随机酒店获取成功</div><div class="line">Response::show(200,&quot;随机酒店获取成功&quot;,$res[$random],&quot;json&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">//随机酒店获取失败</div><div class="line">Response::show(201,&quot;随机酒店获取失败&quot;,&quot;json&quot;);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$hotel = RandomHotel::sharedInstance();</div><div class="line">$hotel-&gt;getHotel();</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
 <p>想看完整项目献上传送门：<a href="https://github.com/FantasticLBP/Hotels" target="_blank" rel="external">住哪儿客户端</a>、<a href="https://github.com/FantasticLBP/Hotels_Server" target="_blank" rel="external">住哪儿服务端</a></p>
 
-      
-    </div>
+  </section>
+
+</article>
+
+<section class="read-more">
+           
     
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/home/" rel="tag"># home</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/10/10/看透构造方法/" rel="next" title="看透构造方法">
-                <i class="fa fa-chevron-left"></i> 看透构造方法
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/10/接口要怎么对？你知道正确的姿势吗/" rel="prev" title="接口要怎么对？你知道正确的姿势吗">
-                接口要怎么对？你知道正确的姿势吗 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.JPG"
-                alt="杭城小刘" />
-            
-              <p class="site-author-name" itemprop="name">杭城小刘</p>
-              <p class="site-description motion-element" itemprop="description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/接口要怎么对？你知道正确的姿势吗/" title="接口要怎么对？你知道正确的姿势吗">接口要怎么对？你知道正确的姿势吗</a></h2>
+                <p class="excerpt">
                 
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">标签</span>
                 
-              </div>
-            
+今天后台同事去温州出差，自己又多了一次远程协作办公的经历-对接口
 
-          </nav>
+1、背景我在公司主要做iOS和h5开发，懂点php开发（独立开发过一个完整的项目，写的了SQL、写的了接口、写的了后台）。
+对接口的时候前端h5页面已经完成，开始了接口对接工作，但是接口对接并不是那么顺利，负责接口的人是一位“颇有
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/接口要怎么对？你知道正确的姿势吗/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/看透构造方法/" title="看透构造方法">看透构造方法</a></h2>
+                <p class="excerpt">
+                
+                构造方法
+new方法的内部就是先调用alloc方法，再调用init方法
 
-          
+alloc方法：那个类接受alloc消息，那么该方法返回该接受类的对象，并把对象返回
 
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/FantasticLBP" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/3194053975/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
-                </span>
-              
-            
-          </div>
+init方法：是1个对象方法，作用：初始化对象
 
-          
-          
 
-          
-          
 
-          
+创建对象的步骤：先使用alloc创建1个对象，再使用init初始化这个对象，才可以使
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/看透构造方法/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2017 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
 
         </div>
-      </section>
-
-      
-
-      
-
     </div>
-  </aside>
 
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">杭城小刘</span>
-
-  
-</div>
-
-
-  <div class="powered-by">powered by 杭城小刘</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
 </body>
 </html>
