@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="home," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###摇一摇根据城市位置推荐酒店客户端### 1、实现摇一摇并震动需要导入头文件。#import  2、当前城市定位，可以看我之前的文字快速定位 3、让vc支持摇一摇。 12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES; 4、关键代码在移动的时候将">
+<meta name="keywords" content="home">
+<meta property="og:type" content="article">
+<meta property="og:title" content="摇一摇根据城市位置推荐酒店">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/index.html">
+<meta property="og:site_name" content="杭城小刘">
+<meta property="og:description" content="###摇一摇根据城市位置推荐酒店客户端### 1、实现摇一摇并震动需要导入头文件。#import  2、当前城市定位，可以看我之前的文字快速定位 3、让vc支持摇一摇。 12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES; 4、关键代码在移动的时候将">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://static.oschina.net/uploads/img/201705/01101002_gBbo.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2287777-9e1f741fb37dcc31.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-10-10T06:50:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="摇一摇根据城市位置推荐酒店">
+<meta name="twitter:description" content="###摇一摇根据城市位置推荐酒店客户端### 1、实现摇一摇并震动需要导入头文件。#import  2、当前城市定位，可以看我之前的文字快速定位 3、让vc支持摇一摇。 12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES; 4、关键代码在移动的时候将">
+<meta name="twitter:image" content="https://static.oschina.net/uploads/img/201705/01101002_gBbo.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/"/>
+
+
+
+
+
+  <title>摇一摇根据城市位置推荐酒店 | 杭城小刘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杭城小刘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/摇一摇根据城市位置推荐酒店/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杭城小刘">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杭城小刘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">摇一摇根据城市位置推荐酒店</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###摇一摇根据城市位置推荐酒店客户端###</p>
+<p>1、实现摇一摇并震动需要导入头文件。#import <audiotoolbox audiotoolbox.h=""></audiotoolbox></p>
+<p>2、当前城市定位，可以看我之前的文字<a href="http://www.jianshu.com/p/b9f8881292ab" target="_blank" rel="external">快速定位</a></p>
+<p>3、让vc支持摇一摇。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self becomeFirstResponder];</div><div class="line">[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;</div></pre></td></tr></table></figure>
+<p>4、关键代码<br>在移动的时候将手机震动，并将view显示出来，并请求接口，将酒店显示出来，点击进入到酒店详情界面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#pragma mark - UIResponder</div><div class="line">-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event&#123;</div><div class="line">AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);</div><div class="line">self.bgView.alpha = 0;</div><div class="line">self.bgView.hidden = YES;</div><div class="line">[UIView animateWithDuration:1.0 animations:^&#123;</div><div class="line">[self getRandomHotel];</div><div class="line">self.bgView.alpha = 1;</div><div class="line">self.bgView.hidden = NO;</div><div class="line">self.hotelImage.image = [UIImage imageNamed:@&quot;My_about&quot;];</div><div class="line">self.label.text = @&quot;您已经成功摇到一个酒店，不喜欢？换个姿势再来一次&quot;;</div><div class="line">[self.label sizeToFit];</div><div class="line">self.hotelImage.contentMode = UIViewContentModeScaleAspectFill;</div><div class="line">self.hotelImage.autoresizingMask = UIViewAutoresizingFlexibleHeight;</div><div class="line">self.hotelImage.clipsToBounds = YES;</div><div class="line">//动态设置uilabel的高度</div><div class="line">self.hotelLabel.numberOfLines = 0;</div><div class="line">self.hotelLabel.lineBreakMode = NSLineBreakByWordWrapping;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line"></div><div class="line">&#125;];</div><div class="line">NSLog(@&quot;摇一摇开始&quot;);</div><div class="line">return ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event&#123;</div><div class="line">NSLog(@&quot;取消摇一摇&quot;);</div><div class="line">return ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event&#123;</div><div class="line">if (motion ==UIEventSubtypeMotionShake )&#123;</div><div class="line">NSLog(@&quot;摇一摇结束&quot;);</div><div class="line">&#125;</div><div class="line">return ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>全部代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//</div><div class="line">// ShakeViewController.m</div><div class="line">// 住哪儿</div><div class="line">//</div><div class="line">// Created by geek on 2017/4/30.</div><div class="line">// Copyright © 2017年 geek. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">#import &quot;ShakeViewController.h&quot;</div><div class="line">#import &quot;HotelDetailVC.h&quot;</div><div class="line">#import &quot;HotelsModel.h&quot;</div><div class="line">#import &quot;LocationManager.h&quot;</div><div class="line">#import &lt;AudioToolbox/AudioToolbox.h&gt;</div><div class="line"></div><div class="line">@interface ShakeViewController ()&lt;LocationManagerDelegate&gt;</div><div class="line">@property (nonatomic, strong) UIImageView *imageView;</div><div class="line">@property (nonatomic, strong) UILabel *label;</div><div class="line">@property (nonatomic, strong) UIView *bgView;</div><div class="line">@property (nonatomic, strong) UILabel *hotelLabel;</div><div class="line">@property (nonatomic, strong) UIImageView *hotelImage;</div><div class="line">@property (nonatomic, strong) HotelsModel *model;</div><div class="line">@property (nonatomic, strong) LocationManager *locationManager;</div><div class="line">@property (nonatomic, strong) NSString *cityName;</div><div class="line">@property (nonatomic, assign) BOOL showHotel;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ShakeViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">[super viewDidLoad];</div><div class="line">[self setupUI];</div><div class="line">[self autoLocate];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setupUI &#123;</div><div class="line">[self.view addSubview:self.imageView];</div><div class="line">[self becomeFirstResponder];</div><div class="line">[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;</div><div class="line">[self.view addSubview:self.label];</div><div class="line">[self.view addSubview:self.bgView];</div><div class="line">[self.bgView addSubview:self.hotelImage];</div><div class="line">[self.bgView addSubview:self.hotelLabel];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)autoLocate&#123;</div><div class="line">self.locationManager = [LocationManager sharedInstance];</div><div class="line">self.locationManager.delegate = self;</div><div class="line">[self.locationManager autoLocate];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)getRandomHotel&#123;</div><div class="line">NSString *url = [NSString stringWithFormat:@&quot;%@%@&quot;,Base_Url,@&quot;/controller/api/RandomHotel.php&quot;];</div><div class="line">NSMutableDictionary *paras = [NSMutableDictionary dictionary];</div><div class="line">paras[@&quot;key&quot;] = AppKey;</div><div class="line">paras[@&quot;city&quot;] = self.cityName;</div><div class="line">[SVProgressHUD showWithStatus:@&quot;正在获取酒店数据&quot;];</div><div class="line">[AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) &#123;</div><div class="line">NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];</div><div class="line">if ([dic[@&quot;code&quot;] integerValue] == 200) &#123;</div><div class="line">[SVProgressHUD dismiss];</div><div class="line">NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];</div><div class="line">self.model = [HotelsModel yy_modelWithJSON:dic[@&quot;data&quot;]];</div><div class="line">self.hotelLabel.text = self.model.hotelName;</div><div class="line">[self.hotelLabel sizeToFit];</div><div class="line">[self.hotelImage sd_setImageWithURL:[NSURL URLWithString: [NSString stringWithFormat:@&quot;%@/%@&quot;,Base_Url,self.model.image1]] placeholderImage:[UIImage imageNamed:@&quot;jpg-1&quot;]];</div><div class="line">&#125;</div><div class="line">&#125; fail:^&#123;</div><div class="line">[SVProgressHUD dismiss];</div><div class="line">&#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)watchDetail&#123;</div><div class="line">HotelDetailVC *vc = [[HotelDetailVC alloc] init];</div><div class="line">vc.startPeriod = [[NSDate date] todayString];</div><div class="line">vc.leavePerios = [[NSDate date] GetTomorrowDayString];</div><div class="line">vc.model = self.model;</div><div class="line">[self.navigationController pushViewController:vc animated:YES];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - LocationManagerDelegate</div><div class="line">-(void)locationManager:(LocationManager *)locationManager didGotLocation:(NSString *)location&#123;</div><div class="line">self.cityName = location;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - UIResponder</div><div class="line">-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event&#123;</div><div class="line">AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);</div><div class="line">self.bgView.alpha = 0;</div><div class="line">self.bgView.hidden = YES;</div><div class="line">[UIView animateWithDuration:1.0 animations:^&#123;</div><div class="line">[self getRandomHotel];</div><div class="line">self.bgView.alpha = 1;</div><div class="line">self.bgView.hidden = NO;</div><div class="line">self.hotelImage.image = [UIImage imageNamed:@&quot;My_about&quot;];</div><div class="line">self.label.text = @&quot;您已经成功摇到一个酒店，不喜欢？换个姿势再来一次&quot;;</div><div class="line">[self.label sizeToFit];</div><div class="line">self.hotelImage.contentMode = UIViewContentModeScaleAspectFill;</div><div class="line">self.hotelImage.autoresizingMask = UIViewAutoresizingFlexibleHeight;</div><div class="line">self.hotelImage.clipsToBounds = YES;</div><div class="line">//动态设置uilabel的高度</div><div class="line">self.hotelLabel.numberOfLines = 0;</div><div class="line">self.hotelLabel.lineBreakMode = NSLineBreakByWordWrapping;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line"></div><div class="line">&#125;];</div><div class="line">NSLog(@&quot;摇一摇开始&quot;);</div><div class="line">return ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event&#123;</div><div class="line">NSLog(@&quot;取消摇一摇&quot;);</div><div class="line">return ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event&#123;</div><div class="line">if (motion ==UIEventSubtypeMotionShake )&#123;</div><div class="line">NSLog(@&quot;摇一摇结束&quot;);</div><div class="line">&#125;</div><div class="line">return ;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - lazy load</div><div class="line">-(UIImageView *)imageView&#123;</div><div class="line">if (!_imageView) &#123;</div><div class="line">_imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-60)];</div><div class="line">_imageView.image = [UIImage imageNamed:@&quot;shake_news_bgVPic&quot;];</div><div class="line">&#125;</div><div class="line">return _imageView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UILabel *)label&#123;</div><div class="line">if (!_label) &#123;</div><div class="line">_label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth/2-200/2, BoundHeight - 60 -270, 200, 21)];</div><div class="line">_label.textColor = [UIColor whiteColor];</div><div class="line">_label.numberOfLines = 2;</div><div class="line">_label.font = [UIFont systemFontOfSize:15];</div><div class="line">_label.text = @&quot;摇一摇，为您随机推荐酒店&quot;;</div><div class="line">[_label sizeToFit];</div><div class="line">&#125;</div><div class="line">return _label;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UIView *)bgView&#123;</div><div class="line">if (!_bgView) &#123;</div><div class="line">_bgView = [[UIView alloc] initWithFrame:CGRectMake(15, BoundHeight-260, BoundWidth-30, 120)];</div><div class="line">_bgView.backgroundColor = [UIColor whiteColor];</div><div class="line">_bgView.layer.cornerRadius = 10;</div><div class="line">_bgView.clipsToBounds = YES;</div><div class="line">_bgView.alpha = 0;</div><div class="line">UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(watchDetail)];</div><div class="line">tap.cancelsTouchesInView = YES;</div><div class="line">_bgView.userInteractionEnabled = YES;</div><div class="line">[_bgView addGestureRecognizer:tap];</div><div class="line">&#125;</div><div class="line">return _bgView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UIImageView *)hotelImage&#123;</div><div class="line">if (!_hotelImage) &#123;</div><div class="line">_hotelImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];</div><div class="line">_hotelImage.contentMode = UIViewContentModeScaleAspectFit;</div><div class="line">&#125;</div><div class="line">return _hotelImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UILabel *)hotelLabel&#123;</div><div class="line">if (!_hotelLabel) &#123;</div><div class="line">_hotelLabel = [[UILabel alloc] initWithFrame:CGRectMake(135, 40, BoundWidth - 30- 140, 40)];</div><div class="line">_hotelLabel.textColor = [UIColor blackColor];</div><div class="line">_hotelLabel.font = [UIFont systemFontOfSize:20];</div><div class="line">&#125;</div><div class="line">return _hotelLabel;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>效果图<br><img src="https://static.oschina.net/uploads/img/201705/01101002_gBbo.png" alt="摇一摇之前" title="在这里输入图片标题"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2287777-9e1f741fb37dcc31.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="摇一摇摇到酒店"></p>
+<p>###随机推荐酒店后台实现###</p>
+<p>实现思路：</p>
+<p>1、接收客户端传来的参数：城市名称、App key；</p>
+<p>2、根据城市名称模糊搜索出酒店数据；</p>
+<p>3、根据搜索出的酒店数据数组长度，生成1个随机数，随机数范围[1,数组长度]；</p>
+<p>4、利用封装好的Responese将数据返给客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">/**</div><div class="line">* Created by PhpStorm.</div><div class="line">* User: geek</div><div class="line">* Date: 2017/3/9</div><div class="line">* Time: 上午9:24</div><div class="line">*/</div><div class="line"></div><div class="line">header(&apos;content-type:text.html;charset=utf-8&apos;);</div><div class="line">error_reporting(0);</div><div class="line">require_once &apos;../../model/PdoMySQL.class.php&apos;;</div><div class="line">require_once &apos;../../model/config.php&apos;;</div><div class="line">require_once &apos;Response.php&apos;;</div><div class="line"></div><div class="line"></div><div class="line">class RandomHotel</div><div class="line">&#123;</div><div class="line">private $tableName = &quot;hotel&quot;;</div><div class="line">private $key = &quot;&quot;;</div><div class="line">private $city = &quot;&quot;;</div><div class="line"></div><div class="line">protected static $_instance = null;</div><div class="line"></div><div class="line">private function __construct()</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">private function __clone()</div><div class="line">&#123;</div><div class="line">// TODO: Implement __clone() method.</div><div class="line">&#125;</div><div class="line"></div><div class="line">public function sharedInstance()&#123;</div><div class="line">if(self::$_instance == null)&#123;</div><div class="line">self::$_instance = new self();</div><div class="line">&#125;</div><div class="line">return self::$_instance;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">private function random($start,$end)&#123;</div><div class="line">$tmp=array();</div><div class="line">while(count($tmp)&lt;1)&#123;</div><div class="line">$tmp[]=mt_rand($start,$end);</div><div class="line">$tmp=array_unique($tmp);</div><div class="line">&#125;</div><div class="line">return $tmp[0]-1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public function getHotel()&#123;</div><div class="line">$mysqlPdo = new PdoMySQL();</div><div class="line"></div><div class="line">self.$this-&gt;key = $_REQUEST[&quot;key&quot;];</div><div class="line">self.$this-&gt;city = $_REQUEST[&quot;city&quot;];</div><div class="line"></div><div class="line">if($this-&gt;key == &quot;&quot; || $this-&gt;key !== &quot;TheHotelReversationApplication&quot; )&#123;</div><div class="line">Response::show(201,&quot;fail&quot;,&quot;非安全的数据请求&quot;,&quot;json&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$pdo=new PdoMySQL();</div><div class="line">$res = $pdo-&gt;find($this-&gt;tableName,&quot;address like &apos;%&quot;.$this-&gt;city.&quot;%&apos;&quot;);</div><div class="line"></div><div class="line">$random = $this-&gt;random(1,count($res));</div><div class="line"></div><div class="line">if($res)&#123;</div><div class="line">//随机酒店获取成功</div><div class="line">Response::show(200,&quot;随机酒店获取成功&quot;,$res[$random],&quot;json&quot;);</div><div class="line">&#125;else&#123;</div><div class="line">//随机酒店获取失败</div><div class="line">Response::show(201,&quot;随机酒店获取失败&quot;,&quot;json&quot;);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$hotel = RandomHotel::sharedInstance();</div><div class="line">$hotel-&gt;getHotel();</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>想看完整项目献上传送门：<a href="https://github.com/FantasticLBP/Hotels" target="_blank" rel="external">住哪儿客户端</a>、<a href="https://github.com/FantasticLBP/Hotels_Server" target="_blank" rel="external">住哪儿服务端</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/home/" rel="tag"># home</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/10/看透构造方法/" rel="next" title="看透构造方法">
+                <i class="fa fa-chevron-left"></i> 看透构造方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/10/接口要怎么对？你知道正确的姿势吗/" rel="prev" title="接口要怎么对？你知道正确的姿势吗">
+                接口要怎么对？你知道正确的姿势吗 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="杭城小刘" />
+            
+              <p class="site-author-name" itemprop="name">杭城小刘</p>
+              <p class="site-description motion-element" itemprop="description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/FantasticLBP" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/3194053975/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杭城小刘</span>
+
+  
+</div>
+
+
+  <div class="powered-by">powered by 杭城小刘</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

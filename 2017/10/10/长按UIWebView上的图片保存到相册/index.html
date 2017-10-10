@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="home," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="长按UIWebView上的图片保存到相册 不知道各位对于这个需求要如何解决？ 可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的">
+<meta name="keywords" content="home">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模仿微信长按网页图片保存到相册">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/长按UIWebView上的图片保存到相册/index.html">
+<meta property="og:site_name" content="杭城小刘">
+<meta property="og:description" content="长按UIWebView上的图片保存到相册 不知道各位对于这个需求要如何解决？ 可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-10T06:52:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模仿微信长按网页图片保存到相册">
+<meta name="twitter:description" content="长按UIWebView上的图片保存到相册 不知道各位对于这个需求要如何解决？ 可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/长按UIWebView上的图片保存到相册/"/>
+
+
+
+
+
+  <title>模仿微信长按网页图片保存到相册 | 杭城小刘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杭城小刘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/长按UIWebView上的图片保存到相册/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杭城小刘">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杭城小刘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">模仿微信长按网页图片保存到相册</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="长按UIWebView上的图片保存到相册"><a href="#长按UIWebView上的图片保存到相册" class="headerlink" title="长按UIWebView上的图片保存到相册"></a>长按UIWebView上的图片保存到相册</h1><blockquote>
+<p>不知道各位对于这个需求要如何解决？</p>
+<p>可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的好不好</p>
+</blockquote>
+<h4 id="那么问题跑出来了，怎么办最简单？"><a href="#那么问题跑出来了，怎么办最简单？" class="headerlink" title="那么问题跑出来了，怎么办最简单？"></a>那么问题跑出来了，怎么办最简单？</h4><ul>
+<li><p>鉴于个人道行尚浅，我就将自己的想法说出来</p>
+</li>
+<li><p>有个js的api：<code>Document.elementFromPoint()</code></p>
+</li>
+</ul>
+<blockquote>
+<p>The<code>elementFromPoint()</code>method of the<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document" target="_blank" rel="external"><code>Document</code></a>interface returns the topmost element at the specified coordinates.</p>
+</blockquote>
+<p>所以根据这个提示，我们完全可以只在App原生端做一些代码开发，实现这个需求</p>
+<h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><p><em>给UIWebView添加长按手势
+</em>监听手势动作，拿到坐标点(x,y)<br><em>UIWebView注入js:Document.elementFromPoint(x,y).src拿到img标签的src
+</em>判断拿到的src是否有值，有值则代表点击的网页上的img标签，此时弹出对话框，是否保存到相册。如果src为空，则代表点击网页上的非img标签，则不需要弹出对话框。<br>*拿到图片的url，生成UIImage。再将图片保存到相册</p>
+<h4 id="有巨坑"><a href="#有巨坑" class="headerlink" title="有巨坑"></a>有巨坑</h4><ul>
+<li>长按手势事件不能每次都响应，据我猜测UIWebView本身就有很多事件，所以实现下UIGestureRecognizerDelegate代理方法。长按手势准确率100%</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer&#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">//  ViewController.m</div><div class="line">//  WebView长按图片保存到相册</div><div class="line">//</div><div class="line">//  Created by 杭城小刘 on 2017/8/2.</div><div class="line">//  Copyright © 2017年 杭城小刘. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()&lt;UIGestureRecognizerDelegate,NSURLSessionDelegate&gt;</div><div class="line">@property (weak, nonatomic) IBOutlet UIWebView *webView;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">#pragma mark -- life cycle</div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    </div><div class="line">    NSString *htmlURL = [[NSBundle mainBundle] pathForResource:@&quot;saveImage&quot; ofType:@&quot;html&quot;];</div><div class="line">    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlURL]]];</div><div class="line">    //给UIWebView添加手势</div><div class="line">    UILongPressGestureRecognizer* longPressed = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];</div><div class="line">    longPressed.delegate = self;</div><div class="line">    [self.webView addGestureRecognizer:longPressed];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark -- UIGestureRecognizerDelegate</div><div class="line">- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer&#123;</div><div class="line">    UIActivityTypeAddToReadingList</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)longPressed:(UILongPressGestureRecognizer*)recognizer&#123;</div><div class="line">    if (recognizer.state != UIGestureRecognizerStateBegan) &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    CGPoint touchPoint = [recognizer locationInView:self.webView];</div><div class="line">    NSString *imgURL = [NSString stringWithFormat:@&quot;document.elementFromPoint(%f, %f).src&quot;, touchPoint.x, touchPoint.y];</div><div class="line">    NSString *urlToSave = [self.webView stringByEvaluatingJavaScriptFromString:imgURL];</div><div class="line">    if (urlToSave.length == 0) &#123;</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIAlertController *alertVC =  [UIAlertController alertControllerWithTitle:@&quot;大宝贝儿&quot; message:@&quot;你真的要保存图片到相册吗？&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@&quot;真的啊&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) &#123;</div><div class="line">            [self saveImageToDiskWithUrl:urlToSave];</div><div class="line">    &#125;];</div><div class="line">    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;大哥，我点错了，不好意思&quot; style:UIAlertActionStyleDefault handler:nil];</div><div class="line">    [alertVC addAction:okAction];</div><div class="line">    [alertVC addAction:cancelAction];</div><div class="line">    [self presentViewController:alertVC animated:YES completion:nil];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - private method</div><div class="line">- (void)saveImageToDiskWithUrl:(NSString *)imageUrl&#123;</div><div class="line">    NSURL *url = [NSURL URLWithString:imageUrl];</div><div class="line">    </div><div class="line">    NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration defaultSessionConfiguration];</div><div class="line">    </div><div class="line">    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue new]];</div><div class="line">    </div><div class="line">    NSURLRequest *imgRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30.0];</div><div class="line">    </div><div class="line">    NSURLSessionDownloadTask  *task = [session downloadTaskWithRequest:imgRequest completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">        if (error) &#123;</div><div class="line">            return ;</div><div class="line">        &#125;</div><div class="line">        NSData * imageData = [NSData dataWithContentsOfURL:location];</div><div class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            </div><div class="line">            UIImage * image = [UIImage imageWithData:imageData];</div><div class="line">            UIImageWriteToSavedPhotosAlbum(image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), NULL);</div><div class="line">        &#125;);</div><div class="line">    &#125;];</div><div class="line">    [task resume];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark 保存图片后的回调</div><div class="line">- (void)imageSavedToPhotosAlbum:(UIImage*)image didFinishSavingWithError:  (NSError*)error contextInfo:(id)contextInfo&#123;</div><div class="line">    NSString*message =@&quot;嘿嘿&quot;;</div><div class="line">    if(!error) &#123;</div><div class="line">        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@&quot;提示&quot; message:@&quot;成功保存到相册&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">        </div><div class="line">        UIAlertAction *action = [UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDestructive handler:nil];</div><div class="line">        [alertControl addAction:action];</div><div class="line">        [self presentViewController:alertControl animated:YES completion:nil];</div><div class="line">    &#125;else&#123;</div><div class="line">        message = [error description];</div><div class="line">        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@&quot;提示&quot; message:message preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">        UIAlertAction *action = [UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleCancel handler:nil];</div><div class="line">        [alertControl addAction:action];</div><div class="line">        [self presentViewController:alertControl animated:YES completion:nil];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>附上关键的js官方文档：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/elementFromPoint" target="_blank" rel="external">Document.elementFromPoint()</a></p>
+<p>附上Demo：<a href="https://github.com/FantasticLBP/BlogDemos" target="_blank" rel="external">Demo</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/home/" rel="tag"># home</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/10/简短代码实现原生定位/" rel="prev" title="简短代码实现原生定位">
+                简短代码实现原生定位 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="杭城小刘" />
+            
+              <p class="site-author-name" itemprop="name">杭城小刘</p>
+              <p class="site-description motion-element" itemprop="description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/FantasticLBP" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/3194053975/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#长按UIWebView上的图片保存到相册"><span class="nav-number">1.</span> <span class="nav-text">长按UIWebView上的图片保存到相册</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#那么问题跑出来了，怎么办最简单？"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">那么问题跑出来了，怎么办最简单？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发步骤"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">开发步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有巨坑"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">有巨坑</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杭城小刘</span>
+
+  
+</div>
+
+
+  <div class="powered-by">powered by 杭城小刘</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

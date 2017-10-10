@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="home," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="NSFileManager 想操作文件，该去了解下NSFileManager  注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问  单例方法得到文件管理者对象  1NSFileManager *fileManager = [NSFileManager defaultManager];  判断是否存在指定的文件  12345#define LogBoo">
+<meta name="keywords" content="home">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSFileManager终极杀手个App接口">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/NSFileManager终极杀手/index.html">
+<meta property="og:site_name" content="杭城小刘">
+<meta property="og:description" content="NSFileManager 想操作文件，该去了解下NSFileManager  注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问  单例方法得到文件管理者对象  1NSFileManager *fileManager = [NSFileManager defaultManager];  判断是否存在指定的文件  12345#define LogBoo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午5.58.38.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午7.02.53.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午7.07.55.png">
+<meta property="og:updated_time" content="2017-10-10T06:53:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NSFileManager终极杀手个App接口">
+<meta name="twitter:description" content="NSFileManager 想操作文件，该去了解下NSFileManager  注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问  单例方法得到文件管理者对象  1NSFileManager *fileManager = [NSFileManager defaultManager];  判断是否存在指定的文件  12345#define LogBoo">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午5.58.38.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/NSFileManager终极杀手/"/>
+
+
+
+
+
+  <title>NSFileManager终极杀手个App接口 | 杭城小刘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">杭城小刘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/NSFileManager终极杀手/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杭城小刘">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杭城小刘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NSFileManager终极杀手个App接口</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NSFileManager"><a href="#NSFileManager" class="headerlink" title="NSFileManager"></a>NSFileManager</h1><blockquote>
+<p>想操作文件，该去了解下NSFileManager</p>
+</blockquote>
+<p>注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问</p>
+<ul>
+<li>单例方法得到文件管理者对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSFileManager *fileManager = [NSFileManager defaultManager];</div></pre></td></tr></table></figure>
+<ul>
+<li>判断是否存在指定的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define LogBool(value) NSLog(@&quot;%@&quot;,value==YES?@&quot;YES&quot;:@&quot;NO&quot;);</div><div class="line"></div><div class="line">   NSString *filepath = @&quot;/Users/geek/Desktop/data.plist&quot;;</div><div class="line">   BOOL res = [fileManager fileExistsAtPath:filepath];</div><div class="line">   LogBool(res)</div></pre></td></tr></table></figure>
+<ul>
+<li>根据给出的文件路径判断是否存在文件，且判断路径是文件还是文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">NSString *filepath1 = @&quot;/Users/geek/Desktop/data.plist&quot;;</div><div class="line">    BOOL isDirectory = NO;</div><div class="line">    BOOL isExist =  [fileManager fileExistsAtPath:filepath1 isDirectory:&amp;isDirectory];</div><div class="line">    if (isExist) &#123;</div><div class="line">        NSLog(@&quot;文件存在&quot;);</div><div class="line">        if (isDirectory) &#123;</div><div class="line">            NSLog(@&quot;文件夹路径&quot;);</div><div class="line">        &#125;else&#123;</div><div class="line">            NSLog(@&quot;文件路径&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;给定的路径不存在&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>判断文件或者文件夹是否可以读取</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//这是一个系统文件（不可读）</div><div class="line"> NSString *filePath2 = @&quot;/.DocumentRevisions-V100 &quot;;</div><div class="line"> BOOL isReadable = [fileManager isReadableFileAtPath:filePath2];</div><div class="line"> if (isReadable) &#123;</div><div class="line">     NSLog(@&quot;文件可读取&quot;);</div><div class="line"> &#125; else &#123;</div><div class="line">     NSLog(@&quot;文件不可读取&quot;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>判断文件是否可以写入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//系统文件不可写入</div><div class="line">   BOOL isWriteAble =  [fileManager isWritableFileAtPath:filePath2];</div><div class="line">   if (isWriteAble) &#123;</div><div class="line">       NSLog(@&quot;文件可写入&quot;);</div><div class="line">   &#125; else &#123;</div><div class="line">       NSLog(@&quot;文件不可写入&quot;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>判断文件是否可以删除</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//系统文件不可删除</div><div class="line">   BOOL isDeleteAble =  [fileManager isDeletableFileAtPath:filePath2];</div><div class="line">    if (isDeleteAble) &#123;</div><div class="line">        NSLog(@&quot;文件可以删除&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        NSLog(@&quot;文件不可删除&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>获取文件信息<br><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午5.58.38.png" alt="文件信息" title="文件信息"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> NSError *error = nil;</div><div class="line">    NSDictionary *fileInfo =  [fileManager attributesOfItemAtPath:filepath1 error:&amp;error];</div><div class="line">//    NSLog(@&quot;文件信息:%@,错误信息:%@&quot;,fileInfo,error);</div><div class="line">    NSLog(@&quot;文件大小:%@&quot;,fileInfo[NSFileSize]);</div></pre></td></tr></table></figure>
+<ul>
+<li>获取指定目录下的所有目录（列出所有的文件和文件夹）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSString *filePath3 = @&quot;/Users/geek/desktop&quot;;</div><div class="line">    NSArray *subs = [fileManager subpathsAtPath:filePath3];</div><div class="line">    NSLog(@&quot;Desktop目录下所有的所有文件和文件夹&quot;);</div><div class="line">    //小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问</div><div class="line">    for (NSString *item in subs) &#123;</div><div class="line">        NSLog(@&quot;%@&quot;,item);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>获取指定目录下的子目录和文件（不包含子孙）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NSError *erroe = nil;</div><div class="line">    NSArray *children =  [fileManager contentsOfDirectoryAtPath:filePath3 error:&amp;erroe];</div><div class="line">    NSLog(@&quot;Desktop目录下的文件和文件夹&quot;);</div><div class="line">    for (NSString *item in children) &#123;</div><div class="line">        NSLog(@&quot;%@&quot;,item);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在指定目录创建文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NSString *filePath1 = @&quot;/Users/geek/Desktop/data.text&quot;;</div><div class="line">NSData *data = [@&quot;我要学好OC&quot; dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line">BOOL createFile =  [fileManager createFileAtPath:filePath1 contents:data attributes:nil];</div><div class="line">if (createFile) &#123;</div><div class="line">    NSLog(@&quot;文件创建成功&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">    NSLog(@&quot;文件创建失败&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在指定目录创建文件夹（参数说明：withIntermediateDirectories后的参数为Bool代表。YES：一路创建；NO：不会做一路创建）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午7.02.53.png" alt="正常创建文件夹成功" title="正常创建文件夹成功"><br><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-07-02%20下午7.07.55.png" alt="创建文件夹失败" title="创建文件夹失败"></p>
+<p>设置一路创建为NO，如果文件夹不存在则停止创建文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">NSString *filePath2 = @&quot;/Users/geek/Desktop/海贼王&quot;;</div><div class="line">NSError *error = nil;</div><div class="line">BOOL createDirectory = [fileManager createDirectoryAtPath:filePath2 withIntermediateDirectories:NO attributes:nil error:&amp;error];</div><div class="line">if (createDirectory) &#123;</div><div class="line">    NSLog(@&quot;文件夹创建成功&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">    NSLog(@&quot;文件夹创建失败，原因：%@&quot;,error);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">//一路创建失败（文件夹不存在就不创建）</div><div class="line">  NSString *filePath3 = @&quot;/Users/geek/Desktop/海贼王&quot;;</div><div class="line">BOOL createDirectory1 = [fileManager createDirectoryAtPath:filePath3 withIntermediateDirectories:NO attributes:nil error:&amp;error];</div><div class="line">if (createDirectory1) &#123;</div><div class="line">    NSLog(@&quot;文件夹创建成功&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">    NSLog(@&quot;文件夹创建失败，原因：%@&quot;,error);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>复制文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NSString *filePath4 = @&quot;/Users/geek/Desktop/动漫&quot;;</div><div class="line"></div><div class="line"> BOOL copyRes = [fileManager copyItemAtPath:filePath3 toPath:filePath4 error:nil];</div><div class="line"> if (copyRes) &#123;</div><div class="line">     NSLog(@&quot;文件复制成功&quot;);</div><div class="line"> &#125; else &#123;</div><div class="line">     NSLog(@&quot;文件复制失败&quot;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>移动文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSString *filePath5 = @&quot;/Users/geek/Downloads/动漫&quot;;</div><div class="line">  BOOL moveRes = [fileManager moveItemAtPath:filePath3 toPath:filePath5 error:nil];</div><div class="line">  if (moveRes) &#123;</div><div class="line">      NSLog(@&quot;文件移动成功&quot;);</div><div class="line">  &#125; else &#123;</div><div class="line">      NSLog(@&quot;文件移动失败&quot;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>可以给文件重命名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//可以给文件重命名</div><div class="line">   NSString *filePath6 = @&quot;/Users/geek/Downloads/卡通&quot;;</div><div class="line">   [fileManager moveItemAtPath:filePath5 toPath:filePath6 error:nil];</div></pre></td></tr></table></figure>
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">BOOL deleteRes = [fileManager removeItemAtPath:filePath6 error:nil];</div><div class="line">if (deleteRes) &#123;</div><div class="line">    NSLog(@&quot;文件删除成功&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">    NSLog(@&quot;文件删除失败&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="NSFileManager小病毒"><a href="#NSFileManager小病毒" class="headerlink" title="NSFileManager小病毒"></a>NSFileManager小病毒</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//单例方法得到文件管理者对象</div><div class="line">   NSFileManager *fileManager = [NSFileManager defaultManager];</div><div class="line">   NSString *filePath = @&quot;/Users/geek/desktop/delete/&quot;;</div><div class="line">   while (1) &#123;</div><div class="line">       //判断该文件路径是否存在</div><div class="line">       BOOL exist = [fileManager fileExistsAtPath:filePath];</div><div class="line">       if (exist) &#123;</div><div class="line">           //找出该路径下的所有文件</div><div class="line">           NSArray *subs = [fileManager contentsOfDirectoryAtPath:filePath error:nil];</div><div class="line">           if (subs.count &gt; 0) &#123;</div><div class="line">               for (int i=0; i&lt;subs.count; i++) &#123;</div><div class="line">                   NSString *fullFileStr = [NSString stringWithFormat:@&quot;%@%@&quot;,filePath,subs[i]];</div><div class="line">                   //判断文件是否可删除</div><div class="line">                   BOOL canDelete = [fileManager isDeletableFileAtPath:fullFileStr];</div><div class="line">                   if (canDelete) &#123;</div><div class="line">                       [fileManager removeItemAtPath:fullFileStr error:nil];</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       //5秒钟为周期，开始不断扫描文件并删除</div><div class="line">       [NSThread sleepForTimeInterval:5];</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/home/" rel="tag"># home</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/10/URL-Schemes深度剖析（上）/" rel="next" title="URL-Schemes深度剖析（上）">
+                <i class="fa fa-chevron-left"></i> URL-Schemes深度剖析（上）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/10/H5性能优化方面的探索/" rel="prev" title="H5性能优化方面的探索">
+                H5性能优化方面的探索 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.JPG"
+                alt="杭城小刘" />
+            
+              <p class="site-author-name" itemprop="name">杭城小刘</p>
+              <p class="site-description motion-element" itemprop="description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/FantasticLBP" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/3194053975/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NSFileManager"><span class="nav-number">1.</span> <span class="nav-text">NSFileManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NSFileManager小病毒"><span class="nav-number">2.</span> <span class="nav-text">NSFileManager小病毒</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杭城小刘</span>
+
+  
+</div>
+
+
+  <div class="powered-by">powered by 杭城小刘</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

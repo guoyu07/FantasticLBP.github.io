@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜1、下载安装node环境2、本机配置git环境3、node安装hexo环境4、下载自己细化的主题，我选择的是next主题5、更改next主题文件夹下的 _config.yml 文件，做一些常用设置的更改6、开始写文章，格式采用markdown语法，写完后发布一下 hexo d">
+<meta name="description" content="1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的 4、原来的代码： 12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;">
 <meta name="keywords" content="home">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开始hexo博客之旅">
-<meta property="og:url" content="http://yoursite.com/2017/10/10/开始hexo博客之旅/index.html">
+<meta property="og:title" content="popstate事件在webkit中的诡异行为">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/popstate事件在webkit中的诡异行为/index.html">
 <meta property="og:site_name" content="杭城小刘">
-<meta property="og:description" content="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜1、下载安装node环境2、本机配置git环境3、node安装hexo环境4、下载自己细化的主题，我选择的是next主题5、更改next主题文件夹下的 _config.yml 文件，做一些常用设置的更改6、开始写文章，格式采用markdown语法，写完后发布一下 hexo d">
+<meta property="og:description" content="1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的 4、原来的代码： 12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T06:09:09.000Z">
+<meta property="og:updated_time" content="2017-10-10T06:53:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开始hexo博客之旅">
-<meta name="twitter:description" content="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜1、下载安装node环境2、本机配置git环境3、node安装hexo环境4、下载自己细化的主题，我选择的是next主题5、更改next主题文件夹下的 _config.yml 文件，做一些常用设置的更改6、开始写文章，格式采用markdown语法，写完后发布一下 hexo d">
+<meta name="twitter:title" content="popstate事件在webkit中的诡异行为">
+<meta name="twitter:description" content="1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的 4、原来的代码： 12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/10/开始hexo博客之旅/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/popstate事件在webkit中的诡异行为/"/>
 
 
 
 
 
-  <title>开始hexo博客之旅 | 杭城小刘</title>
+  <title>popstate事件在webkit中的诡异行为 | 杭城小刘</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/开始hexo博客之旅/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/popstate事件在webkit中的诡异行为/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杭城小刘">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">开始hexo博客之旅</h1>
+          <h1 class="post-title" itemprop="name headline">popstate事件在webkit中的诡异行为</h1>
         
 
         <div class="post-meta">
@@ -320,7 +320,27 @@
       
 
       
-        <h3 id="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"><a href="#首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜" class="headerlink" title="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"></a>首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜</h3><p>1、下载安装node环境<br>2、本机配置git环境<br>3、node安装hexo环境<br>4、下载自己细化的主题，我选择的是next主题<br>5、更改next主题文件夹下的 _config.yml 文件，做一些常用设置的更改<br>6、开始写文章，格式采用markdown语法，写完后发布一下 hexo d</p>
+        <p>1、背景：同事去学校做毕设请假，今天帮他修改h5bug<br>2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框<br>3、具体问题就是<strong>popstate</strong>造成的</p>
+<p>4、原来的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;popstate&apos;, function() &#123;</div><div class="line">var btnArray = [&apos;我要退出&apos;, &apos;继续计数&apos;];</div><div class="line">mui.confirm(&apos;正在计数哦，确定要退出吗？&apos;, &apos;提示&apos;, btnArray, function(e) &#123;</div><div class="line">if(e.index == 1) &#123;</div><div class="line">pushHistory();</div><div class="line">&#125; else &#123;</div><div class="line">setBack();</div><div class="line">&#125;</div><div class="line">&#125;)</div><div class="line">&#125;,false);</div></pre></td></tr></table></figure>
+<p>5、修改后的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;load&apos;, function() &#123;</div><div class="line">setTimeout(function() &#123;</div><div class="line">window.addEventListener(&apos;popstate&apos;, function() &#123;</div><div class="line">var btnArray = [&apos;我要退出&apos;, &apos;继续计数&apos;];</div><div class="line">mui.confirm(&apos;正在计数哦，确定要退出吗？&apos;, &apos;提示&apos;, btnArray, function(e) &#123;</div><div class="line">if(e.index == 1) &#123;</div><div class="line">pushHistory();</div><div class="line">&#125; else &#123;</div><div class="line">setBack();</div><div class="line">&#125;</div><div class="line">&#125;)</div><div class="line">&#125;);</div><div class="line">&#125;, 0);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>6、暂且先解决问题，日后有时间继续深入研究</p>
+<p>研究一阵</p>
+<p>7、说说过去</p>
+<p>以前浏览器操作浏览器历史记录主要依据history对象。在它的<em>proto</em>继承有back、forward、go等函数，那么什么是popState？<strong>简而言之就是HTML5新增的用来控制浏览器历史记录的api。</strong></p>
+<p>8、怎么用？</p>
+<p>HTML5的新API扩展了window.history，使历史记录点更加开放了。可以存储当前历史记录点pushState、替换当前历史记录点replaceState、监听历史记录点popstate。</p>
+<p>history.pushState(data,title,url);<br>//其中第一个参数data是给state的值；第二个参数title为页面的标题，但当前所有浏览器都忽略这个参数，传个空字符串就好；第三个参数url是你想要去的链接；</p>
+<p>replaceState用法类似，例如：history.replaceState(“首页”,””,location.href+ “#web”);</p>
+<p>两者区别：pushState会改变history.length，而replaceState不改变history.length</p>
+<p>9、有坑吗？</p>
+<p>popstate事件在webkit中的很诡异。popstate是HTML5的History系列中的事件，但是这玩意儿在webkit中的行为相当让人蛋疼。这回连IE10都站在了Firefox这边，至少这边的实用性强的多。虽然官方的文档中对popstate的描述也没有细节上的描述，不过以我的逻辑来判断，这货是就webkit的BUG。</p>
+<p>Html5这套ApI和传统的history不同，或者说这套API是“session history entries”。</p>
+<p>注意注意：Html5种的HistoryAPI是不会使页面跳转的，只是操作地址栏和相应的state属性而已，而且它是手动操作的。浏览器默认的History还是传统的那一套，虽然它们在浏览器上都使用同一个“历史记录堆栈”。</p>
+<p>对这个差异的认知就是webkit中诡异行为的原因。webkit并没有把HTML5的History和传统的区分开，而根据官方文档对popstate的描述，只要访问历史记录就会触发popstate。而传统的History中访问页面和生产历史记录是同时的。所以在webkit中，无论是刷新还是访问一个新网页都会触发popstate。而其它浏览器中这个popstate仅作用于HTML5的History，并不响应传统的History，更不用说刷新和访问新网页的情况了。</p>
+<p>原因找到了，那么解决方案呢？</p>
+<p>1、对popstate延迟绑定的方法，因为popstate会在页面加载完成之后不久触发，所以在setTimeout一段时间后再绑定事件，popstate的第一次就不会轻易被webkit夺走了<br>2、判断浏览器再做调整，直接针对webkit在页面加载完成后第一次触发的popstate屏蔽了</p>
 
       
     </div>
@@ -351,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/" rel="next" title="-last-child与-last-of-type你只是会用，有研究过区别吗？">
-                <i class="fa fa-chevron-left"></i> -last-child与-last-of-type你只是会用，有研究过区别吗？
+              <a href="/2017/10/10/在内存剖析对象/" rel="next" title="在内存剖析对象">
+                <i class="fa fa-chevron-left"></i> 在内存剖析对象
               </a>
             
           </div>
@@ -361,8 +381,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/10/工程大小优化之图片资源/" rel="prev" title="工程大小优化之图片资源">
-                工程大小优化之图片资源 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/10/iOS程序员利用分页和模糊查询技术实现一个App接口/" rel="prev" title="iOS程序员利用分页和模糊查询技术实现一个App接口">
+                iOS程序员利用分页和模糊查询技术实现一个App接口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -415,17 +435,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -496,22 +507,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"><span class="nav-number">1.</span> <span class="nav-text">首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
