@@ -500,188 +500,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/H5性能优化方面的探索/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杭城小刘">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杭城小刘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/H5性能优化方面的探索/" itemprop="url">H5性能优化方面的探索</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
-                2017-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="H5性能优化方面的探索"><a href="#H5性能优化方面的探索" class="headerlink" title="H5性能优化方面的探索"></a>H5性能优化方面的探索</h1><blockquote>
-<p>H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。</p>
-</blockquote>
-<p>## </p>
-<h2 id="一、缓存问题及其解决办法"><a href="#一、缓存问题及其解决办法" class="headerlink" title="一、缓存问题及其解决办法"></a>一、缓存问题及其解决办法</h2><p>经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓存问题。</p>
-<p>缓存问题具体表现为：UIWebview首次打开加载慢；第二次加载速度明显快；H5资源更新过后在App上看不到更改的效果</p>
-<p>为此我认为是缓存造成的问题，我进入App目录下，看到Library下的Caches下面有很多文件名称很长的文件，点击预览可以看到是图片、css等，本来我想着找出H5资源缓存到App中的特点，然后用NSFileManager删除掉缓存文件，发现此路不通。</p>
-<h4 id="我想通过控制变量法研究缓存是否存在。"><a href="#我想通过控制变量法研究缓存是否存在。" class="headerlink" title="我想通过控制变量法研究缓存是否存在。"></a>我想通过控制变量法研究缓存是否存在。</h4><h4 id="做了一个实验。步骤如下："><a href="#做了一个实验。步骤如下：" class="headerlink" title="做了一个实验。步骤如下："></a>做了一个实验。步骤如下：</h4><ul>
-<li>用HBuilder（一个编辑器，开启后本机端口8020就可以访问网页）打开H5工程</li>
-<li>在App的一个UIWebview页面上通过和电脑在同一个局域网的方式加载网页</li>
-<li>在App上查看效果，观察某个元素的样式</li>
-<li>在HBuilder编辑器中修改元素样式</li>
-<li>在App上将UIWebView返回上一界面，再次进入查看该元素的样式</li>
-<li>确定有没有变化，来确定有没有缓存</li>
-</ul>
-<p>结论：页面实时效果变化的，没有缓存</p>
-<p>对比实验：</p>
-<ul>
-<li>用HBuilder（一个编辑器，开启后本机端口8020就可以访问网页）打开H5工程</li>
-<li>git提交到服务端</li>
-<li>在App的一个UIWebview页面上通过公网IP的方式加载网页</li>
-<li>在App上查看效果，观察某个元素的样式</li>
-<li>在HBuilder编辑器中修改元素样式</li>
-<li>git提交后发布到服务器上</li>
-<li>在App上将UIWebView返回上一界面，再次进入查看该元素的样式</li>
-<li>确定有没有变化，来确定有没有缓存</li>
-</ul>
-<p>结论：页面没有看到最新的效果，明显缓存了。但是我很想知道为什么本地局域网的方式请求网页不会缓存，而通过公网IP的方式会缓存。</p>
-<p>为此，我做了进一步的实验，用谷歌浏览器分别请求本地局域网和公网ip查看资源加载的情况。</p>
-<p>1、公网IP<br><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-09-15%20下午5.56.28.png" alt=""></p>
-<p>2、本地局域网</p>
-<p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-09-15%20下午6.27.16.png" alt=""></p>
-<p>关键词Status Code</p>
-<p>结论：从图上可以看出本地局域网不管首次加载还是刷新都是直接请求；而通过局域网的方式请求：首次请求是从服务器上获取，在此刷新的时候是从（from memory cache）中获取的。</p>
-<h4 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h4><p>局域网 的方式网速都比较快所以不会缓存；</p>
-<p>公网IP的方式可能由于网速问题会将首次请求到的资源缓存下来。</p>
-<p>所以确定缓存存在了，那么如何避免缓存？</p>
-<ul>
-<li>App在启动后请求一个接口，这个接口的目的是获取当前H5资源的版本号</li>
-<li>将获得的版本号保存下来（App本地保存）</li>
-<li>由于UIWebView上加载网页，发起网络请求都可以通过一个代理方法所拦截，所以我们可以在这个代理方法中判断url的参数，可能是<a href="http://www.a.com/login、http://www.a.com/login.html、http://www.a.com/login.html?name=geek、http://www.a.com/login#readme等等，所以我们判断过url后考虑如何将版本号加到url里面" target="_blank" rel="external">http://www.a.com/login、http://www.a.com/login.html、http://www.a.com/login.html?name=geek、http://www.a.com/login#readme等等，所以我们判断过url后考虑如何将版本号加到url里面</a></li>
-<li>由于我们的App使用了不同模块的UIWebView，但是都是在UIWebView上需要大量的JS交互，所以使用了WebViewJavascriptBridge这个库。UIWebView本身的代理方法不会执行，所以修改这个库里面的WebViewJavascriptBridge.m文件的代码，差不多是下面的方式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType &#123;</div><div class="line">    if (webView != _webView) &#123; return YES; &#125;</div><div class="line">    NSURL *url = [rntity Tag 的资源直接访问equest URL];</div><div class="line">    if ([request.URL.absoluteString containsString:@&quot;http&quot;] || [request.URL.absoluteString containsString:@&quot;https&quot;]) &#123;</div><div class="line">        if ([request.URL.absoluteString containsString:@&quot;?&quot;]) &#123;</div><div class="line">            url = [NSURL URLWithString:[NSString stringWithFormat:@&quot;%@&amp;h5V=%@&quot;,request.URL.absoluteString,[ProjectUtil getH5VersionString]]];</div><div class="line">        &#125;else&#123;</div><div class="line">            url = [NSURL URLWithString:[NSString stringWithFormat:@&quot;%@?h5V=%@&quot;,request.URL.absoluteString,[ProjectUtil getH5VersionString]]];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    LBPLOG(@&quot;url-&gt;%@&quot;,[url absoluteString]);</div><div class="line">    __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;</div><div class="line">    if ([_base isCorrectProcotocolScheme:url]) &#123;</div><div class="line">        if ([_base isBridgeLoadedURL:url]) &#123;</div><div class="line">            [_base injectJavascriptFile];</div><div class="line">        &#125; else if ([_base isQueueMessageURL:url]) &#123;</div><div class="line">            NSString *messageQueueString = [self _evaluateJavascript:[_base webViewJavascriptFetchQueyCommand]];</div><div class="line">            [_base flushMessageQueue:messageQueueString];</div><div class="line">        &#125; else &#123;</div><div class="line">            [_base logUnkownMessage:url];</div><div class="line">        &#125;</div><div class="line">        return NO;</div><div class="line">    &#125; else if (strongDelegate &amp;&amp; [strongDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) &#123;</div><div class="line">        return [strongDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];</div><div class="line">    &#125; else &#123;</div><div class="line">        return YES;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>总结：</p>
-<p>App的缓存问题暂时研究到这里，后期会继续研究其他方面的问题</p>
-<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>通过浏览器我们知道有的缓存是200 OK（from cache ），有的缓存是304 Not modified。如果运维移除了Entity Tag就一直是200（from cache）。如果没有移除的话2者是交替出现的。</p>
-<p>为什么2者会有区别？</p>
-<ul>
-<li>200 OK（from cache）是直接点击链接或者在浏览器地址栏中输入网址敲回车键的结果</li>
-<li>而304 modified是我们刷新了浏览器页面时触发或者设置了长缓存、但Entity Tags没有移除时触发</li>
-</ul>
-<p>做了 实验得出结论：</p>
-<ul>
-<li><p>直接访问有缓存的网站都触发 200 OK (from cache)</p>
-</li>
-<li><p>刷新浏览器则会触发304</p>
-</li>
-<li><p>同一域名下，没有 Entity Tag 的资源直接访问，是 200 OK (from cache) 的结果</p>
-</li>
-<li><p>同一域名下，有Entity Tag 的资源直接访问，是出现304 Not Modified</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/NSFileManager终极杀手/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -820,6 +638,188 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">BOOL deleteRes = [fileManager removeItemAtPath:filePath6 error:nil];</div><div class="line">if (deleteRes) &#123;</div><div class="line">    NSLog(@&quot;文件删除成功&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">    NSLog(@&quot;文件删除失败&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="NSFileManager小病毒"><a href="#NSFileManager小病毒" class="headerlink" title="NSFileManager小病毒"></a>NSFileManager小病毒</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//单例方法得到文件管理者对象</div><div class="line">   NSFileManager *fileManager = [NSFileManager defaultManager];</div><div class="line">   NSString *filePath = @&quot;/Users/geek/desktop/delete/&quot;;</div><div class="line">   while (1) &#123;</div><div class="line">       //判断该文件路径是否存在</div><div class="line">       BOOL exist = [fileManager fileExistsAtPath:filePath];</div><div class="line">       if (exist) &#123;</div><div class="line">           //找出该路径下的所有文件</div><div class="line">           NSArray *subs = [fileManager contentsOfDirectoryAtPath:filePath error:nil];</div><div class="line">           if (subs.count &gt; 0) &#123;</div><div class="line">               for (int i=0; i&lt;subs.count; i++) &#123;</div><div class="line">                   NSString *fullFileStr = [NSString stringWithFormat:@&quot;%@%@&quot;,filePath,subs[i]];</div><div class="line">                   //判断文件是否可删除</div><div class="line">                   BOOL canDelete = [fileManager isDeletableFileAtPath:fullFileStr];</div><div class="line">                   if (canDelete) &#123;</div><div class="line">                       [fileManager removeItemAtPath:fullFileStr error:nil];</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       //5秒钟为周期，开始不断扫描文件并删除</div><div class="line">       [NSThread sleepForTimeInterval:5];</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/H5性能优化方面的探索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杭城小刘">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杭城小刘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/10/H5性能优化方面的探索/" itemprop="url">H5性能优化方面的探索</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="H5性能优化方面的探索"><a href="#H5性能优化方面的探索" class="headerlink" title="H5性能优化方面的探索"></a>H5性能优化方面的探索</h1><blockquote>
+<p>H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。</p>
+</blockquote>
+<p>## </p>
+<h2 id="一、缓存问题及其解决办法"><a href="#一、缓存问题及其解决办法" class="headerlink" title="一、缓存问题及其解决办法"></a>一、缓存问题及其解决办法</h2><p>经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓存问题。</p>
+<p>缓存问题具体表现为：UIWebview首次打开加载慢；第二次加载速度明显快；H5资源更新过后在App上看不到更改的效果</p>
+<p>为此我认为是缓存造成的问题，我进入App目录下，看到Library下的Caches下面有很多文件名称很长的文件，点击预览可以看到是图片、css等，本来我想着找出H5资源缓存到App中的特点，然后用NSFileManager删除掉缓存文件，发现此路不通。</p>
+<h4 id="我想通过控制变量法研究缓存是否存在。"><a href="#我想通过控制变量法研究缓存是否存在。" class="headerlink" title="我想通过控制变量法研究缓存是否存在。"></a>我想通过控制变量法研究缓存是否存在。</h4><h4 id="做了一个实验。步骤如下："><a href="#做了一个实验。步骤如下：" class="headerlink" title="做了一个实验。步骤如下："></a>做了一个实验。步骤如下：</h4><ul>
+<li>用HBuilder（一个编辑器，开启后本机端口8020就可以访问网页）打开H5工程</li>
+<li>在App的一个UIWebview页面上通过和电脑在同一个局域网的方式加载网页</li>
+<li>在App上查看效果，观察某个元素的样式</li>
+<li>在HBuilder编辑器中修改元素样式</li>
+<li>在App上将UIWebView返回上一界面，再次进入查看该元素的样式</li>
+<li>确定有没有变化，来确定有没有缓存</li>
+</ul>
+<p>结论：页面实时效果变化的，没有缓存</p>
+<p>对比实验：</p>
+<ul>
+<li>用HBuilder（一个编辑器，开启后本机端口8020就可以访问网页）打开H5工程</li>
+<li>git提交到服务端</li>
+<li>在App的一个UIWebview页面上通过公网IP的方式加载网页</li>
+<li>在App上查看效果，观察某个元素的样式</li>
+<li>在HBuilder编辑器中修改元素样式</li>
+<li>git提交后发布到服务器上</li>
+<li>在App上将UIWebView返回上一界面，再次进入查看该元素的样式</li>
+<li>确定有没有变化，来确定有没有缓存</li>
+</ul>
+<p>结论：页面没有看到最新的效果，明显缓存了。但是我很想知道为什么本地局域网的方式请求网页不会缓存，而通过公网IP的方式会缓存。</p>
+<p>为此，我做了进一步的实验，用谷歌浏览器分别请求本地局域网和公网ip查看资源加载的情况。</p>
+<p>1、公网IP<br><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-09-15%20下午5.56.28.png" alt=""></p>
+<p>2、本地局域网</p>
+<p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-09-15%20下午6.27.16.png" alt=""></p>
+<p>关键词Status Code</p>
+<p>结论：从图上可以看出本地局域网不管首次加载还是刷新都是直接请求；而通过局域网的方式请求：首次请求是从服务器上获取，在此刷新的时候是从（from memory cache）中获取的。</p>
+<h4 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h4><p>局域网 的方式网速都比较快所以不会缓存；</p>
+<p>公网IP的方式可能由于网速问题会将首次请求到的资源缓存下来。</p>
+<p>所以确定缓存存在了，那么如何避免缓存？</p>
+<ul>
+<li>App在启动后请求一个接口，这个接口的目的是获取当前H5资源的版本号</li>
+<li>将获得的版本号保存下来（App本地保存）</li>
+<li>由于UIWebView上加载网页，发起网络请求都可以通过一个代理方法所拦截，所以我们可以在这个代理方法中判断url的参数，可能是<a href="http://www.a.com/login、http://www.a.com/login.html、http://www.a.com/login.html?name=geek、http://www.a.com/login#readme等等，所以我们判断过url后考虑如何将版本号加到url里面" target="_blank" rel="external">http://www.a.com/login、http://www.a.com/login.html、http://www.a.com/login.html?name=geek、http://www.a.com/login#readme等等，所以我们判断过url后考虑如何将版本号加到url里面</a></li>
+<li>由于我们的App使用了不同模块的UIWebView，但是都是在UIWebView上需要大量的JS交互，所以使用了WebViewJavascriptBridge这个库。UIWebView本身的代理方法不会执行，所以修改这个库里面的WebViewJavascriptBridge.m文件的代码，差不多是下面的方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType &#123;</div><div class="line">    if (webView != _webView) &#123; return YES; &#125;</div><div class="line">    NSURL *url = [rntity Tag 的资源直接访问equest URL];</div><div class="line">    if ([request.URL.absoluteString containsString:@&quot;http&quot;] || [request.URL.absoluteString containsString:@&quot;https&quot;]) &#123;</div><div class="line">        if ([request.URL.absoluteString containsString:@&quot;?&quot;]) &#123;</div><div class="line">            url = [NSURL URLWithString:[NSString stringWithFormat:@&quot;%@&amp;h5V=%@&quot;,request.URL.absoluteString,[ProjectUtil getH5VersionString]]];</div><div class="line">        &#125;else&#123;</div><div class="line">            url = [NSURL URLWithString:[NSString stringWithFormat:@&quot;%@?h5V=%@&quot;,request.URL.absoluteString,[ProjectUtil getH5VersionString]]];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    LBPLOG(@&quot;url-&gt;%@&quot;,[url absoluteString]);</div><div class="line">    __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;</div><div class="line">    if ([_base isCorrectProcotocolScheme:url]) &#123;</div><div class="line">        if ([_base isBridgeLoadedURL:url]) &#123;</div><div class="line">            [_base injectJavascriptFile];</div><div class="line">        &#125; else if ([_base isQueueMessageURL:url]) &#123;</div><div class="line">            NSString *messageQueueString = [self _evaluateJavascript:[_base webViewJavascriptFetchQueyCommand]];</div><div class="line">            [_base flushMessageQueue:messageQueueString];</div><div class="line">        &#125; else &#123;</div><div class="line">            [_base logUnkownMessage:url];</div><div class="line">        &#125;</div><div class="line">        return NO;</div><div class="line">    &#125; else if (strongDelegate &amp;&amp; [strongDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) &#123;</div><div class="line">        return [strongDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];</div><div class="line">    &#125; else &#123;</div><div class="line">        return YES;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>App的缓存问题暂时研究到这里，后期会继续研究其他方面的问题</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><p>通过浏览器我们知道有的缓存是200 OK（from cache ），有的缓存是304 Not modified。如果运维移除了Entity Tag就一直是200（from cache）。如果没有移除的话2者是交替出现的。</p>
+<p>为什么2者会有区别？</p>
+<ul>
+<li>200 OK（from cache）是直接点击链接或者在浏览器地址栏中输入网址敲回车键的结果</li>
+<li>而304 modified是我们刷新了浏览器页面时触发或者设置了长缓存、但Entity Tags没有移除时触发</li>
+</ul>
+<p>做了 实验得出结论：</p>
+<ul>
+<li><p>直接访问有缓存的网站都触发 200 OK (from cache)</p>
+</li>
+<li><p>刷新浏览器则会触发304</p>
+</li>
+<li><p>同一域名下，没有 Entity Tag 的资源直接访问，是 200 OK (from cache) 的结果</p>
+</li>
+<li><p>同一域名下，有Entity Tag 的资源直接访问，是出现304 Not Modified</p>
+</li>
+</ul>
 
           
         
@@ -1419,6 +1419,155 @@ $lister-&gt;getHotels();
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/外卖App双列表联动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杭城小刘">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杭城小刘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/10/外卖App双列表联动/" itemprop="url">外卖App双列表联动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="双列表联动"><a href="#双列表联动" class="headerlink" title="双列表联动"></a>双列表联动</h3><blockquote>
+<p>用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。</p>
+<p>这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得</p>
+</blockquote>
+<h4 id="一、关键思路"><a href="#一、关键思路" class="headerlink" title="一、关键思路"></a>一、关键思路</h4><ul>
+<li>懒加载左右2个UITableView</li>
+<li>根据需要自定义Cell</li>
+<li>2个UITableView加载到界面上的时候注意下部剧就好</li>
+<li>因为需要联动效果，所有左侧的UITableView一般是大的分类，右边的UITableView一般是大分类小的小分类，所以有了这样的特点<ul>
+<li>左边的UITableView是只有1个section和n个row</li>
+<li>右边的UITableView具有n个section（这里的section 个数恰好是左边UITableView的row数量），且每个section下的row由对应的数据源控制</li>
+</ul>
+</li>
+</ul>
+<h4 id="二、第一版代码"><a href="#二、第一版代码" class="headerlink" title="二、第一版代码"></a>二、第一版代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#pragma mark -- UITableViewDelegate</div><div class="line">-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125;</div><div class="line">    return self.datas.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        return self.datas.count;</div><div class="line">    &#125;</div><div class="line">    QuestionCollectionModel *model = self.datas[section];</div><div class="line">    NSArray *questions =model.questions;</div><div class="line">    return questions.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        return LeftCellHeight;</div><div class="line">    &#125;</div><div class="line">    return RightCellHeight;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        PregnancyPeriodCell *cell = [tableView dequeueReusableCellWithIdentifier:PregnancyPeriodCellID forIndexPath:indexPath];</div><div class="line">        if (self.collectionType == CollectionType_Wrong || self.collectionType == CollectionType_Miss) &#123;</div><div class="line">            QuestionCollectionModel *model = self.datas[indexPath.row];</div><div class="line">            cell.week = model.tag;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return cell;</div><div class="line">    &#125;</div><div class="line">    QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionCellID forIndexPath:indexPath];</div><div class="line">    QuestionCollectionModel *model = self.datas[indexPath.section];</div><div class="line">    NSArray *questions =model.questions;</div><div class="line">    QuestionModel *questionModel = questions[indexPath.row];</div><div class="line">    cell.model = questionModel;</div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];</div><div class="line">        [self.rightTableview scrollToRowAtIndexPath:indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)scrollViewDidScroll:(UIScrollView *)scrollView&#123;</div><div class="line">    if (scrollView == self.rightTableview) &#123;</div><div class="line">        NSIndexPath *indexpath = [self.rightTableview indexPathsForVisibleRows].firstObject;</div><div class="line">        NSIndexPath *leftScrollIndexpath = [NSIndexPath indexPathForRow:indexpath.section inSection:0];</div><div class="line">        [self.leftTablview selectRowAtIndexPath:leftScrollIndexpath animated:YES scrollPosition:UITableViewScrollPositionMiddle];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>缺陷：虽然实现了效果，但是有缺陷。点击左侧的UITableView，右侧的UITableViewe滚动到相应的位置，这是没问题的，但是滚动</p>
+<p>右边，需要根据右边indexPath.section将选中左侧相应的indexPath。这样左侧选中的时候，又会触发右边滚动的事件，整体看上去不是很流畅。</p>
+<h4 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h4><p>观察了下，发现右侧滚动的时候左侧会上下选中，所以也就是只要让右侧滚动的时候，左侧的UITableView单方向选中，不要滚动就好，所以由于UITableView也是UIScrollview，所以在scrollViewDidScroll方法中判断右侧的UITableView是向上还是向下滚动，以此作为判断条件来让左侧的UITableView选中相应的行。</p>
+<p>且之前是在scrollview代理方法中让左侧的tableview选中，这样子又会触发左侧tableview的选中事件，从而导致右侧的tablview滚动，造成不严谨的联动逻辑</p>
+<p>改进后的方法：</p>
+<ol>
+<li><p>点击左侧的UITableView，在代理方法didSelectRowAtIndexPath中拿到相应的indexPath.row，计算出右侧UITableView需要滚动的indexPath的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.rightTableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.row] atScrollPosition:UITableViewScrollPositionTop animated:YES];</div></pre></td></tr></table></figure>
+</li>
+<li><p>在willDisplayCell和didEndDisplayingCell代理方法中选中左侧UITableView相应的行。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">    if (tableView == self.rightTableview  &amp;&amp; !self.isScrollDown &amp;&amp; self.rightTableview.isDragging ) &#123;</div><div class="line">        [self.leftTablview selectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.section inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">-(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.rightTableview &amp;&amp; self.isScrollDown &amp;&amp; self.rightTableview.isDragging) &#123;</div><div class="line">        [self.leftTablview selectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.section+1 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    if (self.leftTablview == tableView)</div><div class="line">    &#123;</div><div class="line">        [self.rightTableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.row] atScrollPosition:UITableViewScrollPositionTop animated:YES];</div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;嗡嗡嗡&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">#pragma mark - UIScrollViewDelegate</div><div class="line"></div><div class="line">- (void)scrollViewDidScroll:(UIScrollView *)scrollView&#123;</div><div class="line"></div><div class="line">    static CGFloat lastOffsetY = 0;</div><div class="line"></div><div class="line">    UITableView *tableView = (UITableView *)scrollView;</div><div class="line">    if (self.rightTableview == tableView)&#123;</div><div class="line">        self.isScrollDown = (lastOffsetY &lt; scrollView.contentOffset.y);</div><div class="line">        lastOffsetY = scrollView.contentOffset.y;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h5><p> <img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/2017-09-24%2015_35_52.gif" alt="效果图" title="效果图"></p>
+<p>附上Demo：<a href="https://github.com/FantasticLBP/BlogDemos" target="_blank" rel="external">Demo</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/在内存剖析对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1553,155 +1702,6 @@ $lister-&gt;getHotels();
 <p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-05-15%20下午5.35.17.png" alt="p1" title="p1"></p>
 <p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/屏幕快照%202017-05-15%20下午5.35.34.png" alt="p3" title="p3"></p>
 <p><strong>可以 看到Person类的3个对象p1、p2、p3的isa的值相同。</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/外卖App双列表联动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杭城小刘">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杭城小刘">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/外卖App双列表联动/" itemprop="url">外卖App双列表联动</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T14:04:27+08:00">
-                2017-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="双列表联动"><a href="#双列表联动" class="headerlink" title="双列表联动"></a>双列表联动</h3><blockquote>
-<p>用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。</p>
-<p>这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得</p>
-</blockquote>
-<h4 id="一、关键思路"><a href="#一、关键思路" class="headerlink" title="一、关键思路"></a>一、关键思路</h4><ul>
-<li>懒加载左右2个UITableView</li>
-<li>根据需要自定义Cell</li>
-<li>2个UITableView加载到界面上的时候注意下部剧就好</li>
-<li>因为需要联动效果，所有左侧的UITableView一般是大的分类，右边的UITableView一般是大分类小的小分类，所以有了这样的特点<ul>
-<li>左边的UITableView是只有1个section和n个row</li>
-<li>右边的UITableView具有n个section（这里的section 个数恰好是左边UITableView的row数量），且每个section下的row由对应的数据源控制</li>
-</ul>
-</li>
-</ul>
-<h4 id="二、第一版代码"><a href="#二、第一版代码" class="headerlink" title="二、第一版代码"></a>二、第一版代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">#pragma mark -- UITableViewDelegate</div><div class="line">-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        return 1;</div><div class="line">    &#125;</div><div class="line">    return self.datas.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        return self.datas.count;</div><div class="line">    &#125;</div><div class="line">    QuestionCollectionModel *model = self.datas[section];</div><div class="line">    NSArray *questions =model.questions;</div><div class="line">    return questions.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        return LeftCellHeight;</div><div class="line">    &#125;</div><div class="line">    return RightCellHeight;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        PregnancyPeriodCell *cell = [tableView dequeueReusableCellWithIdentifier:PregnancyPeriodCellID forIndexPath:indexPath];</div><div class="line">        if (self.collectionType == CollectionType_Wrong || self.collectionType == CollectionType_Miss) &#123;</div><div class="line">            QuestionCollectionModel *model = self.datas[indexPath.row];</div><div class="line">            cell.week = model.tag;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return cell;</div><div class="line">    &#125;</div><div class="line">    QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionCellID forIndexPath:indexPath];</div><div class="line">    QuestionCollectionModel *model = self.datas[indexPath.section];</div><div class="line">    NSArray *questions =model.questions;</div><div class="line">    QuestionModel *questionModel = questions[indexPath.row];</div><div class="line">    cell.model = questionModel;</div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.leftTablview) &#123;</div><div class="line">        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];</div><div class="line">        [self.rightTableview scrollToRowAtIndexPath:indexpath atScrollPosition:UITableViewScrollPositionTop animated:YES];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)scrollViewDidScroll:(UIScrollView *)scrollView&#123;</div><div class="line">    if (scrollView == self.rightTableview) &#123;</div><div class="line">        NSIndexPath *indexpath = [self.rightTableview indexPathsForVisibleRows].firstObject;</div><div class="line">        NSIndexPath *leftScrollIndexpath = [NSIndexPath indexPathForRow:indexpath.section inSection:0];</div><div class="line">        [self.leftTablview selectRowAtIndexPath:leftScrollIndexpath animated:YES scrollPosition:UITableViewScrollPositionMiddle];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>缺陷：虽然实现了效果，但是有缺陷。点击左侧的UITableView，右侧的UITableViewe滚动到相应的位置，这是没问题的，但是滚动</p>
-<p>右边，需要根据右边indexPath.section将选中左侧相应的indexPath。这样左侧选中的时候，又会触发右边滚动的事件，整体看上去不是很流畅。</p>
-<h4 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h4><p>观察了下，发现右侧滚动的时候左侧会上下选中，所以也就是只要让右侧滚动的时候，左侧的UITableView单方向选中，不要滚动就好，所以由于UITableView也是UIScrollview，所以在scrollViewDidScroll方法中判断右侧的UITableView是向上还是向下滚动，以此作为判断条件来让左侧的UITableView选中相应的行。</p>
-<p>且之前是在scrollview代理方法中让左侧的tableview选中，这样子又会触发左侧tableview的选中事件，从而导致右侧的tablview滚动，造成不严谨的联动逻辑</p>
-<p>改进后的方法：</p>
-<ol>
-<li><p>点击左侧的UITableView，在代理方法didSelectRowAtIndexPath中拿到相应的indexPath.row，计算出右侧UITableView需要滚动的indexPath的位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.rightTableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.row] atScrollPosition:UITableViewScrollPositionTop animated:YES];</div></pre></td></tr></table></figure>
-</li>
-<li><p>在willDisplayCell和didEndDisplayingCell代理方法中选中左侧UITableView相应的行。</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">    if (tableView == self.rightTableview  &amp;&amp; !self.isScrollDown &amp;&amp; self.rightTableview.isDragging ) &#123;</div><div class="line">        [self.leftTablview selectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.section inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">-(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">    if (tableView == self.rightTableview &amp;&amp; self.isScrollDown &amp;&amp; self.rightTableview.isDragging) &#123;</div><div class="line">        [self.leftTablview selectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.section+1 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    if (self.leftTablview == tableView)</div><div class="line">    &#123;</div><div class="line">        [self.rightTableview scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.row] atScrollPosition:UITableViewScrollPositionTop animated:YES];</div><div class="line">    &#125;else&#123;</div><div class="line">        NSLog(@&quot;嗡嗡嗡&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">#pragma mark - UIScrollViewDelegate</div><div class="line"></div><div class="line">- (void)scrollViewDidScroll:(UIScrollView *)scrollView&#123;</div><div class="line"></div><div class="line">    static CGFloat lastOffsetY = 0;</div><div class="line"></div><div class="line">    UITableView *tableView = (UITableView *)scrollView;</div><div class="line">    if (self.rightTableview == tableView)&#123;</div><div class="line">        self.isScrollDown = (lastOffsetY &lt; scrollView.contentOffset.y);</div><div class="line">        lastOffsetY = scrollView.contentOffset.y;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h5><p> <img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/2017-09-24%2015_35_52.gif" alt="效果图" title="效果图"></p>
-<p>附上Demo：<a href="https://github.com/FantasticLBP/BlogDemos" target="_blank" rel="external">Demo</a></p>
 
           
         
