@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>开始hexo博客之旅 | 杭城小刘</title>
+    <title>事件响应者链 | 杭城小刘</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="开始hexo博客之旅 | 杭城小刘">
+    <meta name="twitter:title" content="事件响应者链 | 杭城小刘">
     <meta name="twitter:description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="开始hexo博客之旅 | 杭城小刘">
+    <meta property="og:title" content="事件响应者链 | 杭城小刘">
     <meta property="og:description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     
@@ -37,7 +37,7 @@
     <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://yoursite.com/2017/10/10/开始hexo博客之旅/"/>
+    <link rel="canonical" href="http://yoursite.com/2017/10/12/事件响应者链/"/>
 
                  
 </head>
@@ -146,7 +146,7 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-meta__tags tags">于 
+      <time datetime="2017-10-12T02:49:55.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-meta__tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
  </span>
       <span class="page-pv">
@@ -154,11 +154,30 @@
       </span> 
    
     </div>
-    <h1 class="post-title">开始hexo博客之旅</h1>
+    <h1 class="post-title">事件响应者链</h1>
   </header>
 
   <section class="post">
-    <h3 id="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"><a href="#首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜" class="headerlink" title="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"></a>首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜</h3><p>1、下载安装node环境<br>2、本机配置git环境<br>3、node安装hexo环境<br>4、下载自己细化的主题，我选择的是next主题<br>5、更改next主题文件夹下的 _config.yml 文件，做一些常用设置的更改<br>6、开始写文章，格式采用markdown语法，写完后发布一下 hexo d</p>
+    <h1 id="事件响应者链"><a href="#事件响应者链" class="headerlink" title="事件响应者链"></a>事件响应者链</h1><p>实验1:</p>
+<p>定义 BaseView，在里面实现方法touchBegan，监听当前哪个类调用了该方法。</p>
+<p>在控制器的界面上加5个颜色不同的view，每个view自定义view去实现，因此在不同的view上的手势就可以由不同的view拦截到。</p>
+<p><img src="https://github.com/FantasticLBP/iOSKonwledge-Kit/blob/master/assets/Simulator%20Screen%20Shot%20-%20iPhone%206s%20Plus%20-%202017-10-11%20at%2010.14.37.png?raw=true" alt="UI效果图"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//BaseView</div><div class="line">#import &quot;BaseView.h&quot;</div><div class="line"></div><div class="line">@implementation BaseView</div><div class="line">-(void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event&#123;</div><div class="line">NSLog(@&quot;%@&quot;,[self class]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：点击不同的View打印出不同的类名。</p>
+<p>结论：</p>
+<ul>
+<li>触摸事件是从父控件传递到子控件的。</li>
+<li>点击了绿色（图上的2级）的view：UIApplication-&gt; UIWindow -&gt; UIViewController的view -&gt; 绿色的view</li>
+<li>点击了蓝色（图上的3级）的view：UIApplication-&gt; UIWindow -&gt; UIViewController的view -&gt; 红棕色的view -&gt; 蓝色的view</li>
+<li>点击了黄色（图上的4级）的view：UIApplication -&gt; UIWindow -&gt; UIViewController的view -&gt; 红棕色的view -&gt; 蓝色的view -&gt; 黄色的view</li>
+</ul>
+<p>注意：如果父控件不能接收触摸事件，那么这个父控件的子控件也不能接收触摸事件</p>
+<h4 id="如何找到最合适的控件来接收触摸事件？"><a href="#如何找到最合适的控件来接收触摸事件？" class="headerlink" title="如何找到最合适的控件来接收触摸事件？"></a>如何找到最合适的控件来接收触摸事件？</h4><ul>
+<li>自己能否接收触摸事件？</li>
+<li>触摸点是否在自己身上？</li>
+<li>从后往前遍历子控件，重复前面2个步骤</li>
+<li>如果没有符合条件的子控件，那么就自己最适合处理</li>
+</ul>
 
   </section>
 
@@ -170,18 +189,16 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/工程大小优化之图片资源/" title="工程大小优化之图片资源">工程大小优化之图片资源</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/12/hitTest和pointInside方法你真的熟吗？/" title="hitTest和pointInside方法你真的熟吗？">hitTest和pointInside方法你真的熟吗？</a></h2>
                 <p class="excerpt">
                 
-                工程大小优化之图片资源
-摘要：点点iOS项目本身功能较多，导致应用体积也比较大。一个Xcode工程下图片资源占用了很大的空间，且如果有些App需要一键换肤功能，呵呵，不知道得做多少图片。每套图片还需要设置1x@,2x@,3x@等
-
-简介IconFont技术起源于Web领域的Web Font技术。随着
+                hitTest和pointInside方法hittest方法
+就是用来寻找最合适的view
+当一个事件传递给一个控件，就会调用这个控件的hitTest方法
+点击了白色的view： 触摸事件 -&amp;gt; UIApplication -&amp;gt; UIWindow 调用 [UIWindow hitTest
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/工程大小优化之图片资源/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2017-10-12T02:51:32.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2017/10/12/hitTest和pointInside方法你真的熟吗？/">继续阅读</a></div>
                            
             </div>
         
@@ -189,17 +206,21 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/iOS程序员利用分页和模糊查询技术实现一个App接口/" title="iOS程序员利用分页和模糊查询技术实现一个App接口">iOS程序员利用分页和模糊查询技术实现一个App接口</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/12/iOS中的事件/" title="iOS中的事件">iOS中的事件</a></h2>
                 <p class="excerpt">
                 
-                摘要: 模糊查询技术、分页技术、App接口
-1、分页问题
-关键技术点：php执行sql语句。示例：“SELECT * FROM hotel WHERE subject=&amp;apos;10&amp;apos; and address like &amp;apos;%杭州%&amp;apos; LIMIT 0,4”。注意：LIM
+                iOS中的事件
+用户在使用App的时候会产生各种事件
+触摸事件、重力加速计事件、远程遥控事件
+只有继承自UIResponder才可以响应事件
+UIView、UIApplication、UIViewController都可以响应事件
+UIResponder
+UIResponder内部提供了一些方法处理
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+                <div class="post-list__meta"><time datetime="2017-10-12T02:48:39.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/iOS程序员利用分页和模糊查询技术实现一个App接口/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/12/iOS中的事件/">继续阅读</a></div>
                        
             </div>
         
