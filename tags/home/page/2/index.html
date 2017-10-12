@@ -236,6 +236,25 @@
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
+      <p class="excerpt">
+    
+      ###摇一摇根据城市位置推荐酒店客户端###
+1、实现摇一摇并震动需要导入头文件。#import 
+2、当前城市定位，可以看我之前的文字快速定位
+3、让vc支持摇一摇。
+12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
+4、关键代码在移动的时候将
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/看透构造方法/" title="link to post.title">看透构造方法</a></h2>
       <p class="excerpt">
     
@@ -264,20 +283,19 @@ init方法：作用：初始化对象，为对象赋初始值
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/简短代码实现原生定位/" title="link to post.title">简短代码实现原生定位</a></h2>
       <p class="excerpt">
     
-      ###摇一摇根据城市位置推荐酒店客户端###
-1、实现摇一摇并震动需要导入头文件。#import 
-2、当前城市定位，可以看我之前的文字快速定位
-3、让vc支持摇一摇。
-12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-4、关键代码在移动的时候将
+      1、首先在info.plist文件中加入权限声明。请求用户获取定位能力
+
+2、大体思路。
+定位需要用户设备打开定位功能。这个可以根据这句代码判断。[CLLocationManager locationServicesEnables]如果为真则设备开启定位功能，否则没有开启。判断用户是否为该应用设置允许定位可以根据CLLocationManagerDelegate的代理方法判断。具体见下面代码
+12
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/简短代码实现原生定位/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -294,24 +312,6 @@ init方法：作用：初始化对象，为对象赋初始值
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/10/长按UIWebView上的图片保存到相册/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/简短代码实现原生定位/" title="link to post.title">简短代码实现原生定位</a></h2>
-      <p class="excerpt">
-    
-      1、首先在info.plist文件中加入权限声明。请求用户获取定位能力
-
-2、大体思路。
-定位需要用户设备打开定位功能。这个可以根据这句代码判断。[CLLocationManager locationServicesEnables]如果为真则设备开启定位功能，否则没有开启。判断用户是否为该应用设置允许定位可以根据CLLocationManagerDelegate的代理方法判断。具体见下面代码
-12
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/简短代码实现原生定位/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
