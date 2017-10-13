@@ -180,6 +180,27 @@ URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
+      <p class="excerpt">
+    
+      对象在内存中的存储
+栈、堆、BSS、数据段、代码段是什么？
+
+栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
+
+堆（heap）：用于存储程序运行中被动态分配的内存段，它的大小并不固定，可动态的扩张和缩减。操作函数(malloc／free)
+
+BSS段（bss segme
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="link to post.title">外卖App双列表联动</a></h2>
       <p class="excerpt">
     
@@ -249,21 +270,19 @@ URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/" title="link to post.title">-last-child与-last-of-type你只是会用，有研究过区别吗？</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/H5性能优化方面的探索/" title="link to post.title">H5性能优化方面的探索</a></h2>
       <p class="excerpt">
     
-      :last-child与:last-of-type
-同学们遇到过给同一组元素的最后一个元素设置css失效的情况吗？我遇到过，当时使用:last-child居然不起作用，看到名字不科学啊，明明是“最后一个元素”，那为什么设置CSS失效呢？今天来一探究竟吧
+      H5性能优化方面的探索
+H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。
 
-
-先看一组:last-child正常工作的代码
-
-12345678910111213141516171819202122232425262728
+## 
+一、缓存问题及其解决办法经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/H5性能优化方面的探索/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -283,25 +302,6 @@ URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/10/接口要怎么对？你知道正确的姿势吗/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
-      <p class="excerpt">
-    
-      ###摇一摇根据城市位置推荐酒店客户端###
-1、实现摇一摇并震动需要导入头文件。#import 
-2、当前城市定位，可以看我之前的文字快速定位
-3、让vc支持摇一摇。
-12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-4、关键代码在移动的时候将
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
