@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>开始hexo博客之旅 | 杭城小刘</title>
+    <title>事件响应者链条 | 杭城小刘</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="开始hexo博客之旅 | 杭城小刘">
+    <meta name="twitter:title" content="事件响应者链条 | 杭城小刘">
     <meta name="twitter:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="开始hexo博客之旅 | 杭城小刘">
+    <meta property="og:title" content="事件响应者链条 | 杭城小刘">
     <meta property="og:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     
@@ -37,7 +37,7 @@
     <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://yoursite.com/2017/10/10/开始hexo博客之旅/"/>
+    <link rel="canonical" href="http://yoursite.com/2017/10/13/事件响应者链条/"/>
 
                  
 </head>
@@ -144,21 +144,30 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-meta__tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
- </span>
+      <time datetime="2017-10-13T03:15:00.000Z" class="post-list__meta--date date">2017-10-13</time> &#8226; <span class="post-meta__tags tags">于  </span>
       <span class="page-pv">
        Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
-    <h1 class="post-title">开始hexo博客之旅</h1>
+    <h1 class="post-title">事件响应者链条</h1>
   </header>
 
   <section class="post">
-    <h3 id="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"><a href="#首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜" class="headerlink" title="首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜"></a>首先列一下关键的几个步骤，网站的教程特别多。要看的自己搜一搜</h3><p>1、下载安装node环境<br>2、本机配置git环境<br>3、node安装hexo环境<br>4、下载自己细化的主题，我选择的是next主题<br>5、更改next主题文件夹下的 _config.yml 文件，做一些常用设置的更改<br>6、开始写文章，格式采用markdown语法，写完后发布一下 hexo d</p>
-<h3 id="开启订阅"><a href="#开启订阅" class="headerlink" title="开启订阅"></a>开启订阅</h3><p>1、下载安装hexo插件 npm install hexo-generator-feed –save<br>2、修改根目录_config.yml配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># RSS</div><div class="line">plugin: hexo-generator-feed</div><div class="line">#Feed Atom</div><div class="line">feed:</div><div class="line">type: atom</div><div class="line">path: atom.xml</div><div class="line">limit: 20</div></pre></td></tr></table></figure></p>
-<p>3、修改主题_config.yml配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rss: /atom.xml</div></pre></td></tr></table></figure></p>
+    <h1 id="事件响应原理"><a href="#事件响应原理" class="headerlink" title="事件响应原理"></a>事件响应原理</h1><p>产生的touch方法的默认做法是将事件顺着响应者链条向上传递，将事件交给上一个响应者处理。</p>
+<h4 id="响应者链条"><a href="#响应者链条" class="headerlink" title="响应者链条"></a>响应者链条</h4><p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/响应者链条.png" alt="响应者链条"></p>
+<h4 id="事件传递的完整过程"><a href="#事件传递的完整过程" class="headerlink" title="事件传递的完整过程"></a>事件传递的完整过程</h4><ol>
+<li>先将事件对象由上往下传递（父控件传递给子控件），找到最合适的控件来处理</li>
+<li>调用最合适控件的touch方法</li>
+<li>如果调用了[super touches…]方法就会将事件顺着响应者链条向上传递，传递给上一个响应者</li>
+<li>接着就会调用上一个响应者的touches…方法</li>
+</ol>
+<h4 id="事件响应者"><a href="#事件响应者" class="headerlink" title="事件响应者"></a>事件响应者</h4><h5 id="如何判断该控件的上一个响应者？"><a href="#如何判断该控件的上一个响应者？" class="headerlink" title="如何判断该控件的上一个响应者？"></a>如何判断该控件的上一个响应者？</h5><ol>
+<li>如果当前这个view是控制器的view，那么上一个响应者就是控制器</li>
+<li>如果当前这个view不是控制器的view，那么上一个响应者就是父控件。</li>
+</ol>
+<p>事件传递给UIApplication后如果不处理的话，该事件会销毁掉。</p>
+<p>控制器view上的子控件的touch…方法如果子控件不处理那么都会顺着响应者链条向上传递给上一层响应者对象，比如可以交给控制器处理。</p>
 
   </section>
 
@@ -167,41 +176,21 @@
 <section class="read-more">
            
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/工程大小优化之图片资源/" title="工程大小优化之图片资源">工程大小优化之图片资源</a></h2>
-                <p class="excerpt">
-                
-                工程大小优化之图片资源
-摘要：点点iOS项目本身功能较多，导致应用体积也比较大。一个Xcode工程下图片资源占用了很大的空间，且如果有些App需要一键换肤功能，呵呵，不知道得做多少图片。每套图片还需要设置1x@,2x@,3x@等
-
-简介IconFont技术起源于Web领域的Web Font技术。随着
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/工程大小优化之图片资源/">继续阅读</a></div>
-                           
-            </div>
         
         
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/" title="-last-child与-last-of-type你只是会用，有研究过区别吗？">-last-child与-last-of-type你只是会用，有研究过区别吗？</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/12/hitTest和pointInside方法你真的熟吗？/" title="hitTest和pointInside方法你真的熟吗？">hitTest和pointInside方法你真的熟吗？</a></h2>
                 <p class="excerpt">
                 
-                :last-child与:last-of-type
-同学们遇到过给同一组元素的最后一个元素设置css失效的情况吗？我遇到过，当时使用:last-child居然不起作用，看到名字不科学啊，明明是“最后一个元素”，那为什么设置CSS失效呢？今天来一探究竟吧
-
-
-先看一组:last-child正常工作的代
+                hittest方法
+就是用来寻找最合适的view
+当一个事件传递给一个控件，就会调用这个控件的hitTest方法
+点击了白色的view： 触摸事件 -&amp;gt; UIApplication -&amp;gt; UIWindow 调用 [UIWindow hitTest] -&amp;gt; 白色view [WhteV
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2017-10-12T02:51:32.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2017/10/12/hitTest和pointInside方法你真的熟吗？/">继续阅读</a></div>
                        
             </div>
         

@@ -12,15 +12,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+    <meta name="description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="外卖App双列表联动 | 杭城小刘">
-    <meta name="twitter:description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+    <meta name="twitter:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="外卖App双列表联动 | 杭城小刘">
-    <meta property="og:description" content="iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+    <meta property="og:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     
     <meta name="author" content="杭城小刘">
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
     
-    <link rel="icon" href="/images/avatar-small.png">
+    <link rel="icon" href="/images/avatar-small.JPG">
     
 
     <meta name="generator" content="hexo"/>
@@ -67,15 +67,13 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
-              <li class="navigation__item"><a href="/">home</a></li>
+              <li class="navigation__item"><a href="/about">爱好</a></li>
             
-              <li class="navigation__item"><a href="/about">about</a></li>
+              <li class="navigation__item"><a href="/about">关于</a></li>
             
-              <li class="navigation__item"><a href="/archives/">archives</a></li>
-            
-              <li class="navigation__item"><a href="/categories/index.html">categories</a></li>
+              <li class="navigation__item"><a href="/atom.xml">订阅</a></li>
             
             </ul>
           </nav>
@@ -199,20 +197,18 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="在内存剖析对象">在内存剖析对象</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/" title="1个月实现1个iOS客户端+后台服务端">1个月实现1个iOS客户端+后台服务端</a></h2>
                 <p class="excerpt">
                 
-                对象在内存中的存储
-栈、堆、BSS、数据段、代码段是什么？
+                Hotels住哪儿App
 
-栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
-
-堆（heap）：用于存储程序运行中被动态分配的内存段，它的
+实现了类似艺龙App的预定酒店功能，包括酒店搜索、特色酒店推荐、特惠酒店推荐等等功能，可以预定酒店、查看订单，唯独不能支付（支付功能必须由公司的名义注册，个人练手注册不了）。
+包括iOS开发的常见功能：自定义NavigationController实现全屏右滑返回上一控制
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/">继续阅读</a></div>
                            
             </div>
         
@@ -220,18 +216,16 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/工程大小优化之图片资源/" title="工程大小优化之图片资源">工程大小优化之图片资源</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/如何优雅地调试手机网页？/" title="如何优雅地调试手机网页？">如何优雅地调试手机网页？</a></h2>
                 <p class="excerpt">
                 
-                工程大小优化之图片资源
-摘要：点点iOS项目本身功能较多，导致应用体积也比较大。一个Xcode工程下图片资源占用了很大的空间，且如果有些App需要一键换肤功能，呵呵，不知道得做多少图片。每套图片还需要设置1x@,2x@,3x@等
-
-简介IconFont技术起源于Web领域的Web Font技术。随着
+                
+在web开发的过程中，抓包、调试页面样式、查看请求头是很常用的技巧。其实在iOS开发中，这些技巧也能用（无论是模拟器还是真机），不过我们需要用到mac自带的浏览器Safari。所以，本文将讲解如何使用Safari对iOS程序中的webview进行调试。1、打开真机（模拟器）的开发者模式【设置】-&amp;
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/工程大小优化之图片资源/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/如何优雅地调试手机网页？/">继续阅读</a></div>
                        
             </div>
         
@@ -261,27 +255,7 @@
     </div>
 
      
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-78918255-1', 'auto');
-	ga('send', 'pageview');
-</script>
-
     
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-
 
 
     <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
