@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>正则表达式 | 杭城小刘</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="正则表达式 | 杭城小刘">
+    <meta name="twitter:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="正则表达式 | 杭城小刘">
+    <meta property="og:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    
+    <meta name="author" content="杭城小刘">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.JPG">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2017/10/16/正则表达式/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 杭城小刘 的主页"><img src="/images/avatar.JPG" width="80" alt="杭城小刘 logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 杭城小刘">杭城小刘</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="/about">爱好</a></li>
+            
+              <li class="navigation__item"><a href="/about">关于</a></li>
+            
+              <li class="navigation__item"><a href="/atom.xml">订阅</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/FantasticLBP" title="GitHub" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-10-16T08:38:59.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-meta__tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+ </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">正则表达式</h1>
+  </header>
+
+  <section class="post">
+    <ul>
+<li>\d ：匹配一个数字</li>
+<li>\w : 匹配任意一个字母或数字</li>
+<li>. : 可以匹配任意字符串</li>
+<li>* : 可以匹配任意个字符（包括0个）</li>
+<li>+: 至少一个字符</li>
+<li><p>? : 表示0个或1个字符</p>
+</li>
+<li><p>{n} :表示n个字符</p>
+</li>
+<li><p>{n-m} : 表示n-m个字符</p>
+</li>
+<li><p>[ ] ：表示范围</p>
+</li>
+<li><p>[0-9a-zA-Z\_] : 可以匹配一个数字、字母或者下划线</p>
+</li>
+<li><p>[0-9a-zA-Z\_]+: 可以匹配至少由一个数字、字母或者下划线组成的字符串</p>
+</li>
+<li><p>[0-9a-zA-Z_$][0-9a-zA-Z__$]* : 可以匹配由数字、字母或者下划线，后接任意个由一个数字、字母或者下划线、$组成的字符串</p>
+</li>
+</ul>
+<h1 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h1><p>JS有2种方式创建一个正则表达式。</p>
+<p>第一种方式是直接通过/正则表达式/写出来。</p>
+<p>第二种 是通过new RegExp(‘正则表达式’)创建一个RegExp对象。</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>因为第二种的写法问题，所以每个<code>\</code>  需要转义，也就是 <code>\\</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function test()&#123;</div><div class="line">var node = document.getElementById(&quot;validate&quot;).value;</div><div class="line">var regStr = /^[0-9a-zA-Z]&#123;3,8&#125;\s*\d[3-8]*$/;</div><div class="line">var regStr2 = new RegExp(&apos;^[0-9a-zA-Z]&#123;3,8&#125;\\s*\\d[3-8]*$&apos;);</div><div class="line">console.log(regStr2.test(node));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; placeholder=&quot;请输入&quot; id=&quot;validate&quot; /&gt;</div><div class="line">&lt;button  onclick=&quot;test()&quot;&gt;检测&lt;/button&gt;</div></pre></td></tr></table></figure>
+<h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>除了简单地判断是否匹配外，正则表达式还可以用来提取分组 ，用 <code>()</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function test()&#123;</div><div class="line">var node = document.getElementById(&quot;validate&quot;).value;</div><div class="line">var regStr = /^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$/;</div><div class="line">var regStr2 = new RegExp(&apos;^(\\d&#123;3&#125;)-(\\d&#123;3,8&#125;)$&apos;);</div><div class="line">console.log(regStr2.exec(node));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; placeholder=&quot;请输入&quot; id=&quot;validate&quot; /&gt;</div><div class="line">&lt;button  onclick=&quot;test()&quot;&gt;检测&lt;/button&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>如果正则表达式中定义了组，就可以在RegExp对象上用exec()方法提取出子串来。</p>
+</li>
+<li><p>exec()方法在匹配成功后会返回一个Array，第一个元素为正则表达式匹配到的整个字符串，后面的元素则表示匹配成功的子串。</p>
+</li>
+<li>exec()方法在匹配失败后会返回null</li>
+</ul>
+<h1 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h1><p>由于 正则表达式默认使用贪婪匹配模式，因此会造成一些问题。比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var res = /^(\d+)(0*)$/;</div><div class="line">res.exec(&apos;102300&apos;);        //[&apos;102300&apos;,&apos;102300&apos;,&apos;&apos;]</div></pre></td></tr></table></figure>
+<p>由于\d+采用贪婪匹配模式，所以会匹配到后面的0，所以加上\d+?代表使用非贪婪匹配模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var res = /^(\d+?)(0*)$/;</div><div class="line">res.exec(&apos;102300&apos;);</div></pre></td></tr></table></figure>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/16/JSON的一些骚操作/" title="JSON的一些骚操作">JSON的一些骚操作</a></h2>
+                <p class="excerpt">
+                
+                
+将json转换为对象JSON.parse()函数的第二个参数用来转换解析出的属性
+
+123456JSON.parse(&amp;apos;&amp;#123;&amp;quot;name&amp;quot;:&amp;quot;lbp&amp;quot;,&amp;quot;age&amp;quot;:&amp;quot;20&amp;quot;&amp;#125;&amp;apos;,fu
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-10-16T08:40:01.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/16/JSON的一些骚操作/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/16/generator函数/" title="generator函数">generator函数</a></h2>
+                <p class="excerpt">
+                
+                generator（生成器）是ES6标准引入的新的数据类型，一个generator看上起像一个函数，但是可以返回多次.
+1234567891011121314151617181920212223&amp;lt;script&amp;gt;&amp;apos;use strict&amp;apos;;function *foo(ma
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-10-16T08:32:20.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/16/generator函数/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2017 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+    
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
