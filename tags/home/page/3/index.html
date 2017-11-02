@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -174,35 +174,39 @@ init方法：作用：初始化对象，为对象赋初始值
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/简短代码实现原生定位/" title="link to post.title">简短代码实现原生定位</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/" title="link to post.title">1个月实现1个iOS客户端+后台服务端</a></h2>
       <p class="excerpt">
     
-      1、首先在info.plist文件中加入权限声明。请求用户获取定位能力
+      Hotels住哪儿App
 
-2、大体思路。
-定位需要用户设备打开定位功能。这个可以根据这句代码判断。[CLLocationManager locationServicesEnables]如果为真则设备开启定位功能，否则没有开启。判断用户是否为该应用设置允许定位可以根据CLLocationManagerDelegate的代理方法判断。具体见下面代码
-12
+实现了类似艺龙App的预定酒店功能，包括酒店搜索、特色酒店推荐、特惠酒店推荐等等功能，可以预定酒店、查看订单，唯独不能支付（支付功能必须由公司的名义注册，个人练手注册不了）。
+包括iOS开发的常见功能：自定义NavigationController实现全屏右滑返回上一控制器的LBPNavigationController自定义UIScrollView实现全屏滑动显示不同
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/简短代码实现原生定位/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/长按UIWebView上的图片保存到相册/" title="link to post.title">模仿微信长按网页图片保存到相册</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
       <p class="excerpt">
     
-      长按UIWebView上的图片保存到相册
-不知道各位对于这个需求要如何解决？
-可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的
+      对象在内存中的存储
+栈、堆、BSS、数据段、代码段是什么？
+
+栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
+
+堆（heap）：用于存储程序运行中被动态分配的内存段，它的大小并不固定，可动态的扩张和缩减。操作函数(malloc／free)
+
+BSS段（bss segme
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/长按UIWebView上的图片保存到相册/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -212,7 +216,7 @@ init方法：作用：初始化对象，为对象赋初始值
 
   <nav class="pagination" role="navigation">
     
-      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/tags/home/page/2/">&larr; Prev</a>
+      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/tags/home/page/2/">&larr; 前へ</a>
     
     <span class="pagination__page-number" >  3 / 3 </span>
     
