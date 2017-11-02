@@ -146,17 +146,22 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="link to post.title">popstate事件在webkit中的诡异行为</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
       <p class="excerpt">
     
-      1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
-4、原来的代码：
-12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;
+      对象在内存中的存储
+栈、堆、BSS、数据段、代码段是什么？
+
+栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
+
+堆（heap）：用于存储程序运行中被动态分配的内存段，它的大小并不固定，可动态的扩张和缩减。操作函数(malloc／free)
+
+BSS段（bss segme
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -179,44 +184,17 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="link to post.title">popstate事件在webkit中的诡异行为</a></h2>
       <p class="excerpt">
     
-      对象在内存中的存储
-栈、堆、BSS、数据段、代码段是什么？
-
-栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
-
-堆（heap）：用于存储程序运行中被动态分配的内存段，它的大小并不固定，可动态的扩张和缩减。操作函数(malloc／free)
-
-BSS段（bss segme
+      1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
+4、原来的代码：
+12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="link to post.title">外卖App双列表联动</a></h2>
-      <p class="excerpt">
-    
-      双列表联动
-用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。
-这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得
-
-一、关键思路
-懒加载左右2个UITableView
-根据需要自定义Cell
-2个UITableView加载到界面上的时候注意下部剧就好
-因为需要联动效果，所有左侧的UITableView一
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/外卖App双列表联动/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -254,6 +232,28 @@ BSS段（bss segme
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="link to post.title">外卖App双列表联动</a></h2>
+      <p class="excerpt">
+    
+      双列表联动
+用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。
+这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得
+
+一、关键思路
+懒加载左右2个UITableView
+根据需要自定义Cell
+2个UITableView加载到界面上的时候注意下部剧就好
+因为需要联动效果，所有左侧的UITableView一
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/外卖App双列表联动/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/开始hexo博客之旅/" title="link to post.title">开始hexo博客之旅</a></h2>
       <p class="excerpt">
     
@@ -264,6 +264,25 @@ BSS段（bss segme
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/10/开始hexo博客之旅/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
+      <p class="excerpt">
+    
+      ###摇一摇根据城市位置推荐酒店客户端###
+1、实现摇一摇并震动需要导入头文件。#import 
+2、当前城市定位，可以看我之前的文字快速定位
+3、让vc支持摇一摇。
+12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
+4、关键代码在移动的时候将
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -288,38 +307,26 @@ BSS段（bss segme
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/H5性能优化方面的探索/" title="link to post.title">H5性能优化方面的探索</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/NSFileManager终极杀手/" title="link to post.title">NSFileManager终极杀手个App接口</a></h2>
       <p class="excerpt">
     
-      H5性能优化方面的探索
-H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。
+      NSFileManager
+想操作文件，该去了解下NSFileManager
 
-## 
-一、缓存问题及其解决办法经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓
+注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问
+
+单例方法得到文件管理者对象
+
+1NSFileManager *fileManager = [NSFileManager defaultManager];
+
+判断是否存在指定的文件
+
+12345#define LogBoo
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/H5性能优化方面的探索/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
-      <p class="excerpt">
-    
-      ###摇一摇根据城市位置推荐酒店客户端###
-1、实现摇一摇并震动需要导入头文件。#import 
-2、当前城市定位，可以看我之前的文字快速定位
-3、让vc支持摇一摇。
-12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-4、关键代码在移动的时候将
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/NSFileManager终极杀手/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
