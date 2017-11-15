@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>正则表达式 | 杭城小刘</title>
+    <title>控制器加载的玄机 | 杭城小刘</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="正则表达式 | 杭城小刘">
+    <meta name="twitter:title" content="控制器加载的玄机 | 杭城小刘">
     <meta name="twitter:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="正则表达式 | 杭城小刘">
+    <meta property="og:title" content="控制器加载的玄机 | 杭城小刘">
     <meta property="og:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     
@@ -37,7 +37,7 @@
     <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://yoursite.com/2017/10/16/正则表达式/"/>
+    <link rel="canonical" href="http://yoursite.com/2017/11/15/控制器加载的玄机/"/>
 
                  
 </head>
@@ -144,7 +144,7 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-10-16T08:38:59.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-meta__tags tags">于 
+      <time datetime="2017-11-15T01:03:07.000Z" class="post-list__meta--date date">2017-11-15</time> &#8226; <span class="post-meta__tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
  </span>
       <span class="page-pv">
@@ -152,49 +152,54 @@
       </span> 
    
     </div>
-    <h1 class="post-title">正则表达式</h1>
+    <h1 class="post-title">控制器加载的玄机</h1>
   </header>
 
   <section class="post">
-    <ul>
-<li>\d ：匹配一个数字</li>
-<li>\w : 匹配任意一个字母或数字</li>
-<li>. : 可以匹配任意字符串</li>
-<li>* : 可以匹配任意个字符（包括0个）</li>
-<li>+: 至少一个字符</li>
-<li><p>? : 表示0个或1个字符</p>
+    <h1 id="loadView"><a href="#loadView" class="headerlink" title="loadView"></a>loadView</h1><ol>
+<li><p>作用：加载控制器的view</p>
 </li>
-<li><p>{n} :表示n个字符</p>
+<li><p>何时调用：当控制器的view第一次使用的时候就会调用</p>
 </li>
-<li><p>{n-m} : 表示n-m个字符</p>
+<li><p>使用场景：只要想自定义控制器的view就调用此方法</p>
 </li>
-<li><p>[ ] ：表示范围</p>
-</li>
-<li><p>[0-9a-zA-Z\_] : 可以匹配一个数字、字母或者下划线</p>
-</li>
-<li><p>[0-9a-zA-Z\_]+: 可以匹配至少由一个数字、字母或者下划线组成的字符串</p>
-</li>
-<li><p>[0-9a-zA-Z_$][0-9a-zA-Z__$]* : 可以匹配由数字、字母或者下划线，后接任意个由一个数字、字母或者下划线、$组成的字符串</p>
-</li>
-</ul>
-<h1 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h1><p>JS有2种方式创建一个正则表达式。</p>
-<p>第一种方式是直接通过/正则表达式/写出来。</p>
-<p>第二种 是通过new RegExp(‘正则表达式’)创建一个RegExp对象。</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>因为第二种的写法问题，所以每个<code>\</code>  需要转义，也就是 <code>\\</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function test()&#123;</div><div class="line">var node = document.getElementById(&quot;validate&quot;).value;</div><div class="line">var regStr = /^[0-9a-zA-Z]&#123;3,8&#125;\s*\d[3-8]*$/;</div><div class="line">var regStr2 = new RegExp(&apos;^[0-9a-zA-Z]&#123;3,8&#125;\\s*\\d[3-8]*$&apos;);</div><div class="line">console.log(regStr2.test(node));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; placeholder=&quot;请输入&quot; id=&quot;validate&quot; /&gt;</div><div class="line">&lt;button  onclick=&quot;test()&quot;&gt;检测&lt;/button&gt;</div></pre></td></tr></table></figure>
-<h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>除了简单地判断是否匹配外，正则表达式还可以用来提取分组 ，用 <code>()</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">function test()&#123;</div><div class="line">var node = document.getElementById(&quot;validate&quot;).value;</div><div class="line">var regStr = /^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$/;</div><div class="line">var regStr2 = new RegExp(&apos;^(\\d&#123;3&#125;)-(\\d&#123;3,8&#125;)$&apos;);</div><div class="line">console.log(regStr2.exec(node));</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; placeholder=&quot;请输入&quot; id=&quot;validate&quot; /&gt;</div><div class="line">&lt;button  onclick=&quot;test()&quot;&gt;检测&lt;/button&gt;</div></pre></td></tr></table></figure>
+</ol>
+<p>访问控制器的View就相当于调用控制器中的view get方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(UIView *)view&#123;</div><div class="line">    if(_view == nil)&#123;</div><div class="line">        [self loadView];</div><div class="line">        [self viewDidload]; </div><div class="line">    &#125;</div><div class="line">    return _view;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="控制器加载view的流程"><a href="#控制器加载view的流程" class="headerlink" title="控制器加载view的流程"></a>控制器加载view的流程</h1><p><img src="http://upload-images.jianshu.io/upload_images/2287777-b6128646373dfffb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017-7-16-01.png"></p>
 <ul>
-<li><p>如果正则表达式中定义了组，就可以在RegExp对象上用exec()方法提取出子串来。</p>
-</li>
-<li><p>exec()方法在匹配成功后会返回一个Array，第一个元素为正则表达式匹配到的整个字符串，后面的元素则表示匹配成功的子串。</p>
-</li>
-<li>exec()方法在匹配失败后会返回null</li>
+<li>控制器的init方法底层会调用initWithNibName方法</li>
 </ul>
-<h1 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h1><p>由于 正则表达式默认使用贪婪匹配模式，因此会造成一些问题。比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var res = /^(\d+)(0*)$/;</div><div class="line">res.exec(&apos;102300&apos;);        //[&apos;102300&apos;,&apos;102300&apos;,&apos;&apos;]</div></pre></td></tr></table></figure>
-<p>由于\d+采用贪婪匹配模式，所以会匹配到后面的0，所以加上\d+?代表使用非贪婪匹配模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var res = /^(\d+?)(0*)$/;</div><div class="line">res.exec(&apos;102300&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyViewController *vc = [[MyViewController alloc] init];</div></pre></td></tr></table></figure>
+<p>注意点：</p>
+<ul>
+<li><p>系统做判断的前提提条件：没有指定nibName；没有自定义loadView方法；控制器以…Controller命名</p>
+</li>
+<li><p>判断原则：</p>
+</li>
+<li><p>1、判断下有没有指定nibName，如果指定了就去加载nib</p>
+</li>
+<li><p>2、判断有没有跟控制器同名的xib，但是xib的名称不带Controller的xib，如果有就去加载</p>
+</li>
+<li><p>3、如果第二步没有指定，就判断有没有跟控制器类名同名的xib，如果有就去加载</p>
+</li>
+<li><p>4、如果没有任何xib描述控制器的view，就不加载xib</p>
+</li>
+</ul>
+<h2 id="MyViewController加载view的处理"><a href="#MyViewController加载view的处理" class="headerlink" title="MyViewController加载view的处理"></a>MyViewController加载view的处理</h2><ul>
+<li><p>判断有没有指定xibName，如果有就去加载指定的xib</p>
+</li>
+<li><p>判断有没有跟控制器类名同名的xib，但是名字不带controller</p>
+</li>
+<li><p>判断有没有跟控制器类名同名的xib，有就去加载</p>
+</li>
+<li><p>直接创建一个空的xib</p>
+</li>
+</ul>
+<p>例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//在Appdelegate中</div><div class="line">    ViewController *vc = [[ViewController alloc] init];</div><div class="line">    vc.view.backgroundColkor = [UIColor redColor];</div><div class="line">    self.window.rootViewController = vc;</div><div class="line">    [pself.window makeKeyAndVisable];</div><div class="line">    </div><div class="line">//ViewController</div><div class="line">-(UIView *)view&#123;</div><div class="line">    if(!_view)&#123;</div><div class="line">        [self loadView];</div><div class="line">        [self viewDidLoad];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)loadView&#123;</div><div class="line">    UIView*view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">    view.backgroundColor = [UIColor greenColor];    self.view = view;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)viewDidload&#123;</div><div class="line">    [super viewDidload];</div><div class="line">    self.view.backgroundColor = [UIColor brownColor];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="请问此时界面颜色是什么？"><a href="#请问此时界面颜色是什么？" class="headerlink" title="请问此时界面颜色是什么？"></a>请问此时界面颜色是什么？</h3><p>可能很多人会回到绿色。其实答案是 红色</p>
+<p>why？在AppDelegate中vc.view.backgroundColor就是调用vc的view的getter方法，在getter方法内部判断_view是否存在，不存在则新建一个UIView，新建view是通过[self loadView]方法创建，创建成功直接调用viewdidload方法；存在则直接返回，所以界面先是绿色，再是棕色最后是红色</p>
 
   </section>
 
@@ -203,9 +208,11 @@
 <section class="read-more">
            
     
+        
+        
                
             <div class="read-more-item">
-                <span class="read-more-item-dim">Newer Post</span>
+                <span class="read-more-item-dim">Older Post</span>
                 <h2 class="post-list__post-title post-title"><a href="/2017/10/16/JSON的一些骚操作/" title="JSON的一些骚操作">JSON的一些骚操作</a></h2>
                 <p class="excerpt">
                 
@@ -218,23 +225,6 @@
                 <div class="post-list__meta"><time datetime="2017-10-16T08:40:01.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/16/JSON的一些骚操作/">继续阅读</a></div>
-                           
-            </div>
-        
-        
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/16/generator函数/" title="generator函数">generator函数</a></h2>
-                <p class="excerpt">
-                
-                generator（生成器）是ES6标准引入的新的数据类型，一个generator看上起像一个函数，但是可以返回多次.
-1234567891011121314151617181920212223&amp;lt;script&amp;gt;&amp;apos;use strict&amp;apos;;function *foo(ma
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2017-10-16T08:32:20.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/16/generator函数/">继续阅读</a></div>
                        
             </div>
         

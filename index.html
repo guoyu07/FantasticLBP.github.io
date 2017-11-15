@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -143,6 +143,29 @@
             <div class="main-post-list">
     
   <ol class="post-list">
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/11/15/控制器加载的玄机/" title="link to post.title">控制器加载的玄机</a></h2>
+      <p class="excerpt">
+    
+      loadView
+作用：加载控制器的view
+
+何时调用：当控制器的view第一次使用的时候就会调用
+
+使用场景：只要想自定义控制器的view就调用此方法
+
+
+访问控制器的View就相当于调用控制器中的view get方法
+1234567-(UIView *)view&amp;#123;    if(_view == nil)&amp;#123;        [self loadView];        [s
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-11-15T01:03:07.000Z" class="post-list__meta--date date">2017-11-15</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/11/15/控制器加载的玄机/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
   
     
     <li>
@@ -293,44 +316,22 @@ UIResponder内部提供了一些方法处理事件
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/H5性能优化方面的探索/" title="link to post.title">H5性能优化方面的探索</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
       <p class="excerpt">
     
-      H5性能优化方面的探索
-H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。
+      对象在内存中的存储
+栈、堆、BSS、数据段、代码段是什么？
 
-## 
-一、缓存问题及其解决办法经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓
+栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
+
+堆（heap）：用于存储程序运行中被动态分配的内存段，它的大小并不固定，可动态的扩张和缩减。操作函数(malloc／free)
+
+BSS段（bss segme
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/H5性能优化方面的探索/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/NSFileManager终极杀手/" title="link to post.title">NSFileManager终极杀手个App接口</a></h2>
-      <p class="excerpt">
-    
-      NSFileManager
-想操作文件，该去了解下NSFileManager
-
-注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问
-
-单例方法得到文件管理者对象
-
-1NSFileManager *fileManager = [NSFileManager defaultManager];
-
-判断是否存在指定的文件
-
-12345#define LogBoo
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/NSFileManager终极杀手/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -342,7 +343,7 @@ H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的�
     
     <span class="pagination__page-number" >  1 / 3 </span>
     
-      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/2/">次へ &rarr;</a>
+      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/2/">Next &rarr;</a>
     
   </nav>
 
