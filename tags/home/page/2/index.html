@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -182,40 +182,26 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/" title="link to post.title">1个月实现1个iOS客户端+后台服务端</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/NSFileManager终极杀手/" title="link to post.title">NSFileManager终极杀手个App接口</a></h2>
       <p class="excerpt">
     
-      Hotels住哪儿App
+      NSFileManager
+想操作文件，该去了解下NSFileManager
 
-实现了类似艺龙App的预定酒店功能，包括酒店搜索、特色酒店推荐、特惠酒店推荐等等功能，可以预定酒店、查看订单，唯独不能支付（支付功能必须由公司的名义注册，个人练手注册不了）。
-包括iOS开发的常见功能：自定义NavigationController实现全屏右滑返回上一控制器的LBPNavigationController自定义UIScrollView实现全屏滑动显示不同
+注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问
+
+单例方法得到文件管理者对象
+
+1NSFileManager *fileManager = [NSFileManager defaultManager];
+
+判断是否存在指定的文件
+
+12345#define LogBoo
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="link to post.title">外卖App双列表联动</a></h2>
-      <p class="excerpt">
-    
-      双列表联动
-用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。
-这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得
-
-一、关键思路
-懒加载左右2个UITableView
-根据需要自定义Cell
-2个UITableView加载到界面上的时候注意下部剧就好
-因为需要联动效果，所有左侧的UITableView一
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/外卖App双列表联动/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/NSFileManager终极杀手/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -246,6 +232,45 @@
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/10/开始hexo博客之旅/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="link to post.title">外卖App双列表联动</a></h2>
+      <p class="excerpt">
+    
+      双列表联动
+用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。
+这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得
+
+一、关键思路
+懒加载左右2个UITableView
+根据需要自定义Cell
+2个UITableView加载到界面上的时候注意下部剧就好
+因为需要联动效果，所有左侧的UITableView一
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/外卖App双列表联动/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/" title="link to post.title">1个月实现1个iOS客户端+后台服务端</a></h2>
+      <p class="excerpt">
+    
+      Hotels住哪儿App
+
+实现了类似艺龙App的预定酒店功能，包括酒店搜索、特色酒店推荐、特惠酒店推荐等等功能，可以预定酒店、查看订单，唯独不能支付（支付功能必须由公司的名义注册，个人练手注册不了）。
+包括iOS开发的常见功能：自定义NavigationController实现全屏右滑返回上一控制器的LBPNavigationController自定义UIScrollView实现全屏滑动显示不同
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -304,35 +329,16 @@ H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的�
     </li>
   
     
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
-      <p class="excerpt">
-    
-      ###摇一摇根据城市位置推荐酒店客户端###
-1、实现摇一摇并震动需要导入头文件。#import 
-2、当前城市定位，可以看我之前的文字快速定位
-3、让vc支持摇一摇。
-12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-4、关键代码在移动的时候将
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
   </ol>
 
 
   <nav class="pagination" role="navigation">
     
-      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; Prev</a>
+      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; 前へ</a>
     
     <span class="pagination__page-number" >  2 / 3 </span>
     
-      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/tags/home/page/3/">Next &rarr;</a>
+      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/tags/home/page/3/">次へ &rarr;</a>
     
   </nav>
 

@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -148,7 +148,7 @@
   <a class="tag-link" href="/tags/home/">home</a>
  </span>
       <span class="page-pv">
-       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+       No. <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
@@ -165,12 +165,12 @@
 </li>
 </ol>
 <p>访问控制器的View就相当于调用控制器中的view get方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(UIView *)view&#123;</div><div class="line">    if(_view == nil)&#123;</div><div class="line">        [self loadView];</div><div class="line">        [self viewDidload]; </div><div class="line">    &#125;</div><div class="line">    return _view;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-(UIView *)view&#123;if(_view == nil)&#123;    [self loadView];    [self viewDidload];    &#125;    return _view;&#125;</div></pre></td></tr></table></figure>
 <h1 id="控制器加载view的流程"><a href="#控制器加载view的流程" class="headerlink" title="控制器加载view的流程"></a>控制器加载view的流程</h1><p><img src="http://upload-images.jianshu.io/upload_images/2287777-b6128646373dfffb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017-7-16-01.png"></p>
 <ul>
 <li>控制器的init方法底层会调用initWithNibName方法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyViewController *vc = [[MyViewController alloc] init];</div></pre></td></tr></table></figure>
+<p>MyViewController *vc = [[MyViewController alloc] init];</p>
 <p>注意点：</p>
 <ul>
 <li><p>系统做判断的前提提条件：没有指定nibName；没有自定义loadView方法；控制器以…Controller命名</p>
@@ -197,9 +197,10 @@
 </li>
 </ul>
 <p>例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//在Appdelegate中</div><div class="line">    ViewController *vc = [[ViewController alloc] init];</div><div class="line">    vc.view.backgroundColkor = [UIColor redColor];</div><div class="line">    self.window.rootViewController = vc;</div><div class="line">    [pself.window makeKeyAndVisable];</div><div class="line">    </div><div class="line">//ViewController</div><div class="line">-(UIView *)view&#123;</div><div class="line">    if(!_view)&#123;</div><div class="line">        [self loadView];</div><div class="line">        [self viewDidLoad];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)loadView&#123;</div><div class="line">    UIView*view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">    view.backgroundColor = [UIColor greenColor];    self.view = view;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)viewDidload&#123;</div><div class="line">    [super viewDidload];</div><div class="line">    self.view.backgroundColor = [UIColor brownColor];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//在Appdelegate中ViewController *vc = [[ViewController alloc] init];vc.view.backgroundColkor = [UIColor redColor];self.window.rootViewController = vc;[pself.window makeKeyAndVisable];//ViewController-(UIView *)view&#123;    if(!_view)&#123;        [self loadView];        [self viewDidLoad];    &#125;&#125;-(void)loadView&#123;    UIView*view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];    view.backgroundColor = [UIColor greenColor];    self.view = view;&#125;-(void)viewDidload&#123;    [super viewDidload];    self.view.backgroundColor = [UIColor brownColor];&#125;</div></pre></td></tr></table></figure>
 <h3 id="请问此时界面颜色是什么？"><a href="#请问此时界面颜色是什么？" class="headerlink" title="请问此时界面颜色是什么？"></a>请问此时界面颜色是什么？</h3><p>可能很多人会回到绿色。其实答案是 红色</p>
 <p>why？在AppDelegate中vc.view.backgroundColor就是调用vc的view的getter方法，在getter方法内部判断_view是否存在，不存在则新建一个UIView，新建view是通过[self loadView]方法创建，创建成功直接调用viewdidload方法；存在则直接返回，所以界面先是绿色，再是棕色最后是红色</p>
+<h4 id="来一个官方解释"><a href="#来一个官方解释" class="headerlink" title="来一个官方解释"></a>来一个官方解释</h4><p><img src="http://upload-images.jianshu.io/upload_images/2287777-8ff7c3b976ffb29a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="官方解释"></p>
 
   </section>
 
@@ -212,7 +213,7 @@
         
                
             <div class="read-more-item">
-                <span class="read-more-item-dim">Older Post</span>
+                <span class="read-more-item-dim">以前の記事</span>
                 <h2 class="post-list__post-title post-title"><a href="/2017/10/16/JSON的一些骚操作/" title="JSON的一些骚操作">JSON的一些骚操作</a></h2>
                 <p class="excerpt">
                 
