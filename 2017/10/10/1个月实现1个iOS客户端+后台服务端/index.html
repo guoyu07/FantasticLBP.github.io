@@ -188,17 +188,17 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="URL-Schemes深度剖析（上）">URL-Schemes深度剖析（上）</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="popstate事件在webkit中的诡异行为">popstate事件在webkit中的诡异行为</a></h2>
                 <p class="excerpt">
                 
-                ###自定义URL Schemes###
-1、引言
-URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形
+                1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
+4、原来的代码：
+12345678910window.a
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
                            
             </div>
         
@@ -206,22 +206,20 @@ URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="外卖App双列表联动">外卖App双列表联动</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="在内存剖析对象">在内存剖析对象</a></h2>
                 <p class="excerpt">
                 
-                双列表联动
-用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。
-这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得
+                对象在内存中的存储
+栈、堆、BSS、数据段、代码段是什么？
 
-一、关键思路
-懒加载左右2个UITableView
-根据需要自定义Cell
-2个UITa
+栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
+
+堆（heap）：用于存储程序运行中被动态分配的内存段，它的
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/外卖App双列表联动/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
                        
             </div>
         
