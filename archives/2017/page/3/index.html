@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -85,7 +85,7 @@
   <!-- Weibo-->
   
   <li class="navigation__item">
-    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
+    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="我的微博" target="_blank">
       <i class='social fa fa-weibo'></i>
       <span class="label">Weibo</span>
     </a>
@@ -95,7 +95,7 @@
   <!-- Github -->
   
   <li class="navigation__item">
-    <a href="https://github.com/FantasticLBP" title="GitHub" target="_blank">
+    <a href="https://github.com/FantasticLBP" title="查看我的GitHub主页" target="_blank">
       <i class='social fa fa-github'></i>
       <span class="label">Github</span>
     </a>
@@ -146,6 +146,23 @@
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="link to post.title">URL-Schemes深度剖析（上）</a></h2>
+      <p class="excerpt">
+    
+      ###自定义URL Schemes###
+1、引言
+URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形界面那样可以直观地点来点去，造成了对它有兴趣的人（尤其是对英文有恐惧的人）一定程度上理解的困难。
+2
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/接口要怎么对？你知道正确的姿势吗/" title="link to post.title">接口要怎么对？你知道正确的姿势吗</a></h2>
       <p class="excerpt">
     
@@ -165,18 +182,19 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="link to post.title">URL-Schemes深度剖析（上）</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/H5性能优化方面的探索/" title="link to post.title">H5性能优化方面的探索</a></h2>
       <p class="excerpt">
     
-      ###自定义URL Schemes###
-1、引言
-URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形界面那样可以直观地点来点去，造成了对它有兴趣的人（尤其是对英文有恐惧的人）一定程度上理解的困难。
-2
+      H5性能优化方面的探索
+H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。
+
+## 
+一、缓存问题及其解决办法经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/H5性能优化方面的探索/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -207,6 +225,25 @@ URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
+      <p class="excerpt">
+    
+      ###摇一摇根据城市位置推荐酒店客户端###
+1、实现摇一摇并震动需要导入头文件。#import 
+2、当前城市定位，可以看我之前的文字快速定位
+3、让vc支持摇一摇。
+12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
+4、关键代码在移动的时候将
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/看透构造方法/" title="link to post.title">看透构造方法</a></h2>
       <p class="excerpt">
     
@@ -230,25 +267,6 @@ init方法：作用：初始化对象，为对象赋初始值
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/10/看透构造方法/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
-      <p class="excerpt">
-    
-      ###摇一摇根据城市位置推荐酒店客户端###
-1、实现摇一摇并震动需要导入头文件。#import 
-2、当前城市定位，可以看我之前的文字快速定位
-3、让vc支持摇一摇。
-12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-4、关键代码在移动的时候将
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -292,7 +310,7 @@ init方法：作用：初始化对象，为对象赋初始值
 
   <nav class="pagination" role="navigation">
     
-      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/archives/2017/page/2/">&larr; Prev</a>
+      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/archives/2017/page/2/">&larr; 最近</a>
     
     <span class="pagination__page-number" >  3 / 3 </span>
     
