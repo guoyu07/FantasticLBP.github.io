@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>iOS中的事件 | 杭城小刘</title>
+    <title>较好的用户体验获取 App 使用权限的方式 | 杭城小刘</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="iOS中的事件 | 杭城小刘">
+    <meta name="twitter:title" content="较好的用户体验获取 App 使用权限的方式 | 杭城小刘">
     <meta name="twitter:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="iOS中的事件 | 杭城小刘">
+    <meta property="og:title" content="较好的用户体验获取 App 使用权限的方式 | 杭城小刘">
     <meta property="og:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
 
     
@@ -37,7 +37,7 @@
     <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://yoursite.com/2017/10/12/iOS中的事件/"/>
+    <link rel="canonical" href="http://yoursite.com/2018/01/18/较好的用户体验获取-App-使用权限的方式/"/>
 
                  
 </head>
@@ -144,7 +144,7 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-10-12T02:48:39.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-meta__tags tags">于 
+      <time datetime="2018-01-18T01:40:09.000Z" class="post-list__meta--date date">2018-01-18</time> &#8226; <span class="post-meta__tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
  </span>
       <span class="page-pv">
@@ -152,31 +152,15 @@
       </span> 
    
     </div>
-    <h1 class="post-title">iOS中的事件</h1>
+    <h1 class="post-title">较好的用户体验获取 App 使用权限的方式</h1>
   </header>
 
   <section class="post">
-    <ul>
-<li>用户在使用App的时候会产生各种事件</li>
-<li>触摸事件、重力加速计事件、远程遥控事件</li>
-<li>只有继承自UIResponder才可以响应事件</li>
-<li>UIView、UIApplication、UIViewController都可以响应事件</li>
-<li><h2 id="UIResponder"><a href="#UIResponder" class="headerlink" title="UIResponder"></a>UIResponder</h2></li>
-<li>UIResponder内部提供了一些方法处理事件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//触摸事件</div><div class="line">-(void)touchBegan:(NSSet *)touches withEvent:(UIEvent *)event;</div><div class="line">-(void)touchMoved:(NSSet *)touches withEvent:(UIEvent *)event;</div><div class="line">-(void)touchEnded:(NSSet *)touches withEvent:(UIEvent *)event;</div><div class="line">-(void)touchCanceled:(NSSet *)touches withEvent:(UIEvent *)event;</div><div class="line"></div><div class="line">//加速计事件</div><div class="line">-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event;</div><div class="line">-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event;</div><div class="line">-(void)motionCanceled:(UIEventSubtype)motion withEvent:(UIEvent *)event;</div><div class="line"></div><div class="line">//远程控制事件</div><div class="line">-(void)remoteControlReceivedWithEvent:(UIEvent *)event;</div></pre></td></tr></table></figure>
-<h1 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h1><ul>
-<li>发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中去</li>
-<li>UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常先分发事件给应用程序的主窗口（keyWindow）</li>
-<li>主窗口会在视图层次结构中寻找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程中最重要的一步。</li>
-</ul>
-<p>找到合适的视图控件后，就会调用视图控件的touch方法来做具体的事件处理逻辑</p>
-<h2 id="UIView不接收事件的3种情况"><a href="#UIView不接收事件的3种情况" class="headerlink" title="UIView不接收事件的3种情况"></a>UIView不接收事件的3种情况</h2><ol>
-<li>不接收用户交互。view.userInteractionEnabled = NO</li>
-<li>隐藏。view.hidden = YES</li>
-<li>透明度很低。view.alpha = 0.0 ~ 0.01</li>
-</ol>
-<p>注意：UIImageView的userInteractionEnabled默认为NO，因此UIImageView及其它上面的子控件默认是不能接受触摸事件的。</p>
+    <blockquote>
+<p>目前市面上大多数的 App 获取权限都是在用户在使用该功能的时候弹出获取权限的请求，这样子用户在用的时候弹出来要么给予权限，要么关闭权限这种方式显得用户很被动。最近看到 instagram 的获取用户权限的方式比较好。记录下来以后用得着</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/6707f65fgy1fnim1n0a4mj20qo1lrtat.jpg" alt="instagram获取App权限"></p>
+<p><img src="https://raw.githubusercontent.com/FantasticLBP/iOSKonwledge-Kit/master/assets/6707f65fgy1fnim1m4o7jj20qo1lrach.jpg" alt="微博获取App权限"></p>
 
   </section>
 
@@ -188,19 +172,18 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/12/事件响应者链/" title="事件响应者链">事件响应者链</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2018/01/18/CSS-埋点统计/" title="CSS 埋点统计">CSS 埋点统计</a></h2>
                 <p class="excerpt">
                 
-                实验1:
-定义 BaseView，在里面实现方法touchBegan，监听当前哪个类调用了该方法。
-在控制器的界面上加5个颜色不同的view，每个view自定义view去实现，因此在不同的view上的手势就可以由不同的view拦截到。
+                
+当一个网站或者 App 的规模达到一定程度，需要分析用户在 App 或者网站的相应操作，则需要埋点统计用户行为，这个不用多说，具体实现有 JS 脚本写好埋点事件并调接口，今天 get 到一种新的埋点统计方式保证耳目一新。下面代码简单示范一下。
 
-1234567//BaseView#import &amp;quot;
+12345678910111213141516171
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-10-12T02:49:55.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-list__meta--tags tags">于 
+                <div class="post-list__meta"><time datetime="2018-01-18T01:49:00.000Z" class="post-list__meta--date date">2018-01-18</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/12/事件响应者链/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2018/01/18/CSS-埋点统计/">继续阅读</a></div>
                            
             </div>
         
@@ -208,13 +191,22 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/抓包工具-Charles初见/" title="抓包工具 - Charles初见">抓包工具 - Charles初见</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/12/26/命令行文件查找/" title="命令行文件查找">命令行文件查找</a></h2>
                 <p class="excerpt">
                 
-                一、 下载地址Charles的下载地址：https://pan.baidu.com/s/1sl8bE93因为Charles只有30天的试用期，所以在这里给一个破解版的包：https://pan.baidu.com/s/1cHtE0m二、破解方法1、像正常安装应用一样，点击安装，之后将应用包拖到App
+                在日常中，find的使用频率很高，熟练掌握对提供工作效率很有帮助。
+语法:
+1find(选项)(参数)
+1、列出当前目录以及目录下的所有文件
+1find .
+2、找到当前目录下名字为 11.png 的文件
+1find . -name &amp;quot;11.png&amp;quot;
+3、找到当前目录下所有的  
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-10-10T06:56:48.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2017/10/10/抓包工具-Charles初见/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2017-12-26T01:29:51.000Z" class="post-list__meta--date date">2017-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/12/26/命令行文件查找/">继续阅读</a></div>
                        
             </div>
         

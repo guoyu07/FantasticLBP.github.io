@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -146,42 +146,21 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/NSFileManager终极杀手/" title="link to post.title">NSFileManager终极杀手个App接口</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/" title="link to post.title">-last-child与-last-of-type你只是会用，有研究过区别吗？</a></h2>
       <p class="excerpt">
     
-      NSFileManager
-想操作文件，该去了解下NSFileManager
+      :last-child与:last-of-type
+同学们遇到过给同一组元素的最后一个元素设置css失效的情况吗？我遇到过，当时使用:last-child居然不起作用，看到名字不科学啊，明明是“最后一个元素”，那为什么设置CSS失效呢？今天来一探究竟吧
 
-注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问
 
-单例方法得到文件管理者对象
+先看一组:last-child正常工作的代码
 
-1NSFileManager *fileManager = [NSFileManager defaultManager];
-
-判断是否存在指定的文件
-
-12345#define LogBoo
+12345678910111213141516171819202122232425262728
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/NSFileManager终极杀手/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/长按UIWebView上的图片保存到相册/" title="link to post.title">模仿微信长按网页图片保存到相册</a></h2>
-      <p class="excerpt">
-    
-      长按UIWebView上的图片保存到相册
-不知道各位对于这个需求要如何解决？
-可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/长按UIWebView上的图片保存到相册/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -215,25 +194,6 @@ init方法：作用：初始化对象，为对象赋初始值
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/摇一摇根据城市位置推荐酒店/" title="link to post.title">摇一摇根据城市位置推荐酒店</a></h2>
-      <p class="excerpt">
-    
-      ###摇一摇根据城市位置推荐酒店客户端###
-1、实现摇一摇并震动需要导入头文件。#import 
-2、当前城市定位，可以看我之前的文字快速定位
-3、让vc支持摇一摇。
-12[self becomeFirstResponder];[UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-4、关键代码在移动的时候将
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/摇一摇根据城市位置推荐酒店/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/简短代码实现原生定位/" title="link to post.title">简短代码实现原生定位</a></h2>
       <p class="excerpt">
     
@@ -251,12 +211,44 @@ init方法：作用：初始化对象，为对象赋初始值
     </li>
   
     
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="link to post.title">popstate事件在webkit中的诡异行为</a></h2>
+      <p class="excerpt">
+    
+      1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
+4、原来的代码：
+12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/长按UIWebView上的图片保存到相册/" title="link to post.title">模仿微信长按网页图片保存到相册</a></h2>
+      <p class="excerpt">
+    
+      长按UIWebView上的图片保存到相册
+不知道各位对于这个需求要如何解决？
+可能有些人会想到js与原生交互，js监听图片点击事件，然后将图片的url传递给原生App端，然后原生App将图片保存到相册，这样子麻烦吗？超麻烦。（1）、js监听图片长按事件；（2）、js将图片url传递给原生；（3）、原生通过图片的url生成UIImage；（4）、保存UIImage到系统相册，巨麻烦啊，大哥，我很懒的
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/10/长按UIWebView上的图片保存到相册/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
   </ol>
 
 
   <nav class="pagination" role="navigation">
     
-      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/archives/2017/10/page/2/">&larr; 前へ</a>
+      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/archives/2017/10/page/2/">&larr; Prev</a>
     
     <span class="pagination__page-number" >  3 / 3 </span>
     
@@ -285,7 +277,7 @@ init方法：作用：初始化对象，为对象赋初始值
 
             <footer class="footer">
     <span class="footer__copyright">
-        &copy; 2017 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        &copy; 2018 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
        
     </span>
     <span class="footer__copyright">

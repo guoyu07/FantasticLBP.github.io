@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -146,6 +146,42 @@
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/12/hitTest和pointInside方法你真的熟吗？/" title="link to post.title">hitTest和pointInside方法你真的熟吗？</a></h2>
+      <p class="excerpt">
+    
+      hittest方法
+就是用来寻找最合适的view
+当一个事件传递给一个控件，就会调用这个控件的hitTest方法
+点击了白色的view： 触摸事件 -&amp;gt; UIApplication -&amp;gt; UIWindow 调用 [UIWindow hitTest] -&amp;gt; 白色view [WhteView hitTest]
+
+实验1:
+定义 BaseView，在里面实现方法touchBegan，监
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-12T02:51:32.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2017/10/12/hitTest和pointInside方法你真的熟吗？/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/12/事件响应者链/" title="link to post.title">事件响应者链</a></h2>
+      <p class="excerpt">
+    
+      实验1:
+定义 BaseView，在里面实现方法touchBegan，监听当前哪个类调用了该方法。
+在控制器的界面上加5个颜色不同的view，每个view自定义view去实现，因此在不同的view上的手势就可以由不同的view拦截到。
+
+1234567//BaseView#import &amp;quot;BaseView.h&amp;quot;@implementation BaseView-(void)tou
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-12T02:49:55.000Z" class="post-list__meta--date date">2017-10-12</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/12/事件响应者链/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/12/iOS中的事件/" title="link to post.title">iOS中的事件</a></h2>
       <p class="excerpt">
     
@@ -197,17 +233,18 @@ UIResponder内部提供了一些方法处理事件
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="link to post.title">popstate事件在webkit中的诡异行为</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="link to post.title">URL-Schemes深度剖析（上）</a></h2>
       <p class="excerpt">
     
-      1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
-4、原来的代码：
-12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;
+      ###自定义URL Schemes###
+1、引言
+URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形界面那样可以直观地点来点去，造成了对它有兴趣的人（尤其是对英文有恐惧的人）一定程度上理解的困难。
+2
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -230,23 +267,6 @@ UIResponder内部提供了一些方法处理事件
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="link to post.title">URL-Schemes深度剖析（上）</a></h2>
-      <p class="excerpt">
-    
-      ###自定义URL Schemes###
-1、引言
-URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形界面那样可以直观地点来点去，造成了对它有兴趣的人（尤其是对英文有恐惧的人）一定程度上理解的困难。
-2
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
       <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
       <p class="excerpt">
     
@@ -263,21 +283,6 @@ BSS段（bss segme
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
 </span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/如何优雅地调试手机网页？/" title="link to post.title">如何优雅地调试手机网页？</a></h2>
-      <p class="excerpt">
-    
-      
-在web开发的过程中，抓包、调试页面样式、查看请求头是很常用的技巧。其实在iOS开发中，这些技巧也能用（无论是模拟器还是真机），不过我们需要用到mac自带的浏览器Safari。所以，本文将讲解如何使用Safari对iOS程序中的webview进行调试。1、打开真机（模拟器）的开发者模式【设置】-&amp;gt; 【Safari】 -&amp;gt; 【高级】 -&amp;gt; 【Web检查器】打开2、打开MBP上的S
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/如何优雅地调试手机网页？/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -305,18 +310,16 @@ BSS段（bss segme
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/工程大小优化之图片资源/" title="link to post.title">工程大小优化之图片资源</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/如何优雅地调试手机网页？/" title="link to post.title">如何优雅地调试手机网页？</a></h2>
       <p class="excerpt">
     
-      工程大小优化之图片资源
-摘要：点点iOS项目本身功能较多，导致应用体积也比较大。一个Xcode工程下图片资源占用了很大的空间，且如果有些App需要一键换肤功能，呵呵，不知道得做多少图片。每套图片还需要设置1x@,2x@,3x@等
-
-简介IconFont技术起源于Web领域的Web Font技术。随着时间的推移，网页设计越来越漂亮。但是电脑预装的字体远远无法满足设计者的要求，于是Web Font技术
+      
+在web开发的过程中，抓包、调试页面样式、查看请求头是很常用的技巧。其实在iOS开发中，这些技巧也能用（无论是模拟器还是真机），不过我们需要用到mac自带的浏览器Safari。所以，本文将讲解如何使用Safari对iOS程序中的webview进行调试。1、打开真机（模拟器）的开发者模式【设置】-&amp;gt; 【Safari】 -&amp;gt; 【高级】 -&amp;gt; 【Web检查器】打开2、打开MBP上的S
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/工程大小优化之图片资源/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/如何优雅地调试手机网页？/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -326,11 +329,11 @@ BSS段（bss segme
 
   <nav class="pagination" role="navigation">
     
-      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; 前へ</a>
+      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; Prev</a>
     
-    <span class="pagination__page-number" >  2 / 3 </span>
+    <span class="pagination__page-number" >  2 / 4 </span>
     
-      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/3/">次へ &rarr;</a>
+      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/3/">Next &rarr;</a>
     
   </nav>
 
@@ -357,7 +360,7 @@ BSS段（bss segme
 
             <footer class="footer">
     <span class="footer__copyright">
-        &copy; 2017 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        &copy; 2018 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
        
     </span>
     <span class="footer__copyright">
