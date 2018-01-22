@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>杭城小刘</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="杭城小刘">
+    <meta name="twitter:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="杭城小刘">
+    <meta property="og:description" content="iOS/web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州">
+
+    
+    <meta name="author" content="杭城小刘">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.JPG">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="杭城小刘" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2017/12/13/Javascript-prototype/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 杭城小刘 的主页"><img src="/images/avatar.JPG" width="80" alt="杭城小刘 logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 杭城小刘">杭城小刘</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">iOS开发、web开发 | 95后 | 海贼王、龙珠 | 乒乓球 健身 | 杭州</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/about">爱好</a></li>
+            
+              <li class="navigation__item"><a href="/about">关于</a></li>
+            
+              <li class="navigation__item"><a href="/atom.xml">订阅</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/FantasticLBP" title="GitHub" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-12-13T09:23:12.742Z" class="post-list__meta--date date">2017-12-13</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       No. <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title"></h1>
+  </header>
+
+  <section class="post">
+    <p>原<br>型继承<br>JS中的继承跟其他面向对象语言的继承有点不太一样，要正确的了解JS中的继承还得了解JS的前世今生。<br>一、从JS的诞生之初说起<br>要理解Javascript的设计思想还得从它的诞生说起。</p>
+<p>1994年网景公司（Netscape）发布了 Navigator 浏览器 0.9 版。这是历史上第一个比较成熟的网络浏览器，轰动一时，但是这个版本的浏览器只能用来浏览，不具备与访问者交互的能力。比如网页上有一个地方需要用户输入“用户名” ，当时浏览器无法判断访问者是否真的填写了，只有让服务器判断，如果没有填写，服务器就返回错误，这太浪费时间和服务器资源了。</p>
+<p>因此，网景公司需要一种网页脚本语言，使得浏览器可以与网页互动，工程师 Brendan Eich 负责开发这种新语言。他觉得没有必要设计的很复杂，这种语言只要能够完成一些简单的操作就足够了，比如判断用户有没有填写表单。</p>
+<p>1994年正是面向对象编程（OOP）最兴盛的时期，C++是当时最流行的语言，Java语言的1.0版即将在第二年推出，Sun 公司正在大肆造势。</p>
+<p>Brendan Eich 无疑收到了影响，JS里面所有的数据类型都是对象，这一点与Java非常相似，但是他随即遇到一个问题，到底要不要设计继承机制？</p>
+<p>二、Brendan Eich的选择<br>如果 真的是一种简易的脚本语言，其实不需要有“继承”机制，但是JS里面都是对象，必须有一种机制，将所有的对象都联系起来，所以他最后还是设计了“继承”。</p>
+<p>但是他没有引入“类”的概念，因为一旦有了“类”，JS就是一门完全面向对象的语言了，增加了初学者的难度，他考虑到 C++ 和 Java 都使用 new 命令，生成实例。</p>
+<p>C++ 写法</p>
+<p>ClassName *object = new ClassName(param);<br>Java 写法</p>
+<p>Foo foo = new Foo();<br>因此引入了 new 命令，用来从原型对象生成一个实例对象，但是JS没有“类”的概念，怎么表示原型对象？</p>
+<p>这时他想到 C++ 和 Java 都是使用 new 命令，会调用类的构造函数（constructor）。他就设计了一个简化版，在 JS 语言中，new 命令后跟的不是类，而是构造函数。</p>
+<p>举例来说，用狗的构造函数表示狗对象的原型。</p>
+<p>function Dog(name){<br>    this.name = name;<br>}<br>对这个构造函数使用 new， 就会生成一个狗对象的实例。</p>
+<p>var dog1 = new Dog(“阿拉斯加”);<br>console.log(dog1.name);    //阿拉斯加<br>注意：构造函数中的 this 关键字，指向了新构建的实例对象。</p>
+<p>三、new 运算符的缺点<br>用构造函数生成的实例对象，有一个缺点就是无法共享属性和方法。</p>
+<p>比如，在Dog对象的构造函数中，设置一个实例对象的共有属性category</p>
+<p>function Dog(name){<br>         this.name = name;<br>     this.categey = “dog”;<br>}</p>
+<p>var dog1 = new Dog(“阿拉斯加”);<br>var dog2 = new Dog(“萨摩”);</p>
+<p>console.log(dog1.category);         //dog<br>console.log(dog2.category);         //dog</p>
+<p>dog1.category = “阿拉斯加”;<br>console.log(dog1.category);         //阿拉斯加<br>console.log(dog2.category);         //dog<br>这时候2个对象的category属性是独立的，修改其中一个，不会影响另一个。</p>
+<p>这样 的弊端就是每一个实例对象，都有自己的属性和方法的副本，无法做到数据的共享，对内存的极大浪费。</p>
+<p>四、prototype 属性的引入<br>考虑到这一点，Brendan Eich 决定为构造函数设置一个 prototype 属性。</p>
+<p>这个属性包含一个对象，所有的实例对象需要共享的属性和方法都保存在这个对象里面，那些不需要共享的属性和方法就放在构造函数里面。</p>
+<p>实例对象一旦创建，将自动引用 prototype 对象的属性和方法， 也就是说实例对象的属性和方法，分成两种，一种是自己（子类）的属性和方法，另一种是引用的（父类）。</p>
+<p>function Dog(name) {<br>    this.name = name;<br>}</p>
+<p>Dog.prototype.category = “dog”;<br>var dog1 = new Dog(“阿拉斯加”);<br>var dog2 = new Dog(“萨摩”);<br>console.log(dog1.category); //dog<br>console.log(dog2.category); //dog<br>dog1.category = “啸天犬”;<br>console.log(dog1.category); //啸天犬<br>console.log(dog2.category); //dog<br>dog1.<strong>proto</strong>.category = “啸天犬”;<br>console.log(dog1.category); //啸天犬<br>console.log(dog2.category); //啸天犬<br>现在 category 属性存放在 prototype 对象里面，被子类共享，只要修改 prototype 对象里面的 category 值，子类都会被改变。</p>
+<p>修改可以通过2种方法修改</p>
+<p>1、dog1.<strong>proto</strong>.category = “啸天犬”;<br>2、Dog.prototype.category = “啸天犬”;<br>五、总结<br>由于所有的实例对象共享同一个 prototype 对象，那么外界看起来就是 prototype 对象就像是实例对象的原型， 而实例对象就好像继承了 prototype 对象一样。</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">新しい記事</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/12/26/命令行文件查找/" title="命令行文件查找">命令行文件查找</a></h2>
+                <p class="excerpt">
+                
+                在日常中，find的使用频率很高，熟练掌握对提供工作效率很有帮助。
+语法:
+1find(选项)(参数)
+1、列出当前目录以及目录下的所有文件
+1find .
+2、找到当前目录下名字为 11.png 的文件
+1find . -name &amp;quot;11.png&amp;quot;
+3、找到当前目录下所有的  
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-12-26T01:29:51.000Z" class="post-list__meta--date date">2017-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/12/26/命令行文件查找/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">以前の記事</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/12/06/UINavigation的一点用途/" title="UINavigation的妙用">UINavigation的妙用</a></h2>
+                <p class="excerpt">
+                
+                UINavagationController重写push和pop方法
+有个需求就是在App的Tab的首页需要显示浮动着的交互动画的机器人，该机器人具有机器学习的特点，因此可以不断的与用户交互，怎么样实现只浮动在App的5个tab首页，当点击跳转不是首页的时候不需要显示
+
+因为5个tab上是5个自定义
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-12-06T09:52:34.000Z" class="post-list__meta--date date">2017-12-06</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/12/06/UINavigation的一点用途/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 杭城小刘 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+    
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
