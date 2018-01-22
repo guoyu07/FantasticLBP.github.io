@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="Blogを読む" class="blog-button">Blog</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -293,38 +293,34 @@ UIResponder内部提供了一些方法处理事件
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="link to post.title">URL-Schemes深度剖析（上）</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="link to post.title">popstate事件在webkit中的诡异行为</a></h2>
       <p class="excerpt">
     
-      ###自定义URL Schemes###
-1、引言
-URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形界面那样可以直观地点来点去，造成了对它有兴趣的人（尤其是对英文有恐惧的人）一定程度上理解的困难。
-2
+      1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
+4、原来的代码：
+12345678910window.addEventListener(&amp;apos;popstate&amp;apos;, function() &amp;
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/" title="link to post.title">-last-child与-last-of-type你只是会用，有研究过区别吗？</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/" title="link to post.title">1个月实现1个iOS客户端+后台服务端</a></h2>
       <p class="excerpt">
     
-      :last-child与:last-of-type
-同学们遇到过给同一组元素的最后一个元素设置css失效的情况吗？我遇到过，当时使用:last-child居然不起作用，看到名字不科学啊，明明是“最后一个元素”，那为什么设置CSS失效呢？今天来一探究竟吧
+      Hotels住哪儿App
 
-
-先看一组:last-child正常工作的代码
-
-12345678910111213141516171819202122232425262728
+实现了类似艺龙App的预定酒店功能，包括酒店搜索、特色酒店推荐、特惠酒店推荐等等功能，可以预定酒店、查看订单，唯独不能支付（支付功能必须由公司的名义注册，个人练手注册不了）。
+包括iOS开发的常见功能：自定义NavigationController实现全屏右滑返回上一控制器的LBPNavigationController自定义UIScrollView实现全屏滑动显示不同
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/1个月实现1个iOS客户端+后台服务端/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -336,7 +332,7 @@ URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒
     
     <span class="pagination__page-number" >  1 / 3 </span>
     
-      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/archives/2017/10/page/2/">次へ &rarr;</a>
+      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/archives/2017/10/page/2/">Next &rarr;</a>
     
   </nav>
 
