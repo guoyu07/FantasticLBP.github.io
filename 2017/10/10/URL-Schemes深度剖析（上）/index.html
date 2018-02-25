@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -85,7 +85,7 @@
   <!-- Weibo-->
   
   <li class="navigation__item">
-    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="我的微博" target="_blank">
+    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
       <i class='social fa fa-weibo'></i>
       <span class="label">Weibo</span>
     </a>
@@ -95,7 +95,7 @@
   <!-- Github -->
   
   <li class="navigation__item">
-    <a href="https://github.com/FantasticLBP" title="查看我的GitHub主页" target="_blank">
+    <a href="https://github.com/FantasticLBP" title="GitHub" target="_blank">
       <i class='social fa fa-github'></i>
       <span class="label">Github</span>
     </a>
@@ -148,7 +148,7 @@
   <a class="tag-link" href="/tags/home/">home</a>
  </span>
       <span class="page-pv">
-       阅读 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
       </span> 
    
     </div>
@@ -213,41 +213,44 @@
     
                
             <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/popstate事件在webkit中的诡异行为/" title="popstate事件在webkit中的诡异行为">popstate事件在webkit中的诡异行为</a></h2>
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="在内存剖析对象">在内存剖析对象</a></h2>
                 <p class="excerpt">
                 
-                1、背景：同事去学校做毕设请假，今天帮他修改h5bug2、遇到的问题：移动端App打开某个网页会自动弹出一个对话框，这个对话框出现的不合时宜，因为需要是在页面做一些操作后点击原生顶部的返回按钮再弹出对话框3、具体问题就是popstate造成的
-4、原来的代码：
-12345678910window.a
+                对象在内存中的存储
+栈、堆、BSS、数据段、代码段是什么？
+
+栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
+
+堆（heap）：用于存储程序运行中被动态分配的内存段，它的
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/popstate事件在webkit中的诡异行为/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
                            
             </div>
         
         
                
             <div class="read-more-item">
-                <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/NSFileManager终极杀手/" title="NSFileManager终极杀手个App接口">NSFileManager终极杀手个App接口</a></h2>
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/10/10/外卖App双列表联动/" title="外卖App双列表联动">外卖App双列表联动</a></h2>
                 <p class="excerpt">
                 
-                NSFileManager
-想操作文件，该去了解下NSFileManager
+                双列表联动
+用过了那么多的外卖App，总结出一个规律，那就是“所有的外卖App都有双列表联动功能”。哈哈哈哈，这是一个玩笑。
+这次我也需要开发具有联动效果的双列表。也是首次开发这种类型的UI，记录下步骤与心得
 
-注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问
-
-单例方法得到文件管理者对象
-
-1NSFileManager *fileManager = [NSFileManager 
+一、关键思路
+懒加载左右2个UITableView
+根据需要自定义Cell
+2个UITa
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/NSFileManager终极杀手/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/外卖App双列表联动/">继续阅读</a></div>
                        
             </div>
         

@@ -67,7 +67,7 @@
           <div>
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">博客</a></li>
             
               <li class="navigation__item"><a href="/about">爱好</a></li>
             
@@ -85,7 +85,7 @@
   <!-- Weibo-->
   
   <li class="navigation__item">
-    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="我的微博" target="_blank">
+    <a href="http://weibo.com/3194053975/profile?topnav=1&amp;wvr=6" title="Weibo" target="_blank">
       <i class='social fa fa-weibo'></i>
       <span class="label">Weibo</span>
     </a>
@@ -95,7 +95,7 @@
   <!-- Github -->
   
   <li class="navigation__item">
-    <a href="https://github.com/FantasticLBP" title="查看我的GitHub主页" target="_blank">
+    <a href="https://github.com/FantasticLBP" title="GitHub" target="_blank">
       <i class='social fa fa-github'></i>
       <span class="label">Github</span>
     </a>
@@ -143,6 +143,36 @@
             <div class="main-post-list">
     
   <ol class="post-list">
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/16/正则表达式/" title="link to post.title">正则表达式</a></h2>
+      <p class="excerpt">
+    
+      
+\d ：匹配一个数字
+\w : 匹配任意一个字母或数字
+. : 可以匹配任意字符串
+* : 可以匹配任意个字符（包括0个）
++: 至少一个字符
+? : 表示0个或1个字符
+
+{n} :表示n个字符
+
+{n-m} : 表示n-m个字符
+
+[ ] ：表示范围
+
+[0-9a-zA-Z\_] : 可以匹配一个数字、字母或者下划线
+
+[0-9a-zA-Z\_]+: 可以匹配至少由一个数字、字母或者下划线组
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2017-10-16T08:38:59.000Z" class="post-list__meta--date date">2017-10-16</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="tag-link" href="/tags/home/">home</a>
+</span><a class="btn-border-small" href="/2017/10/16/正则表达式/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
   
     
     <li>
@@ -262,64 +292,39 @@ UIResponder内部提供了一些方法处理事件
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/URL-Schemes深度剖析（上）/" title="link to post.title">URL-Schemes深度剖析（上）</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/" title="link to post.title">-last-child与-last-of-type你只是会用，有研究过区别吗？</a></h2>
       <p class="excerpt">
     
-      ###自定义URL Schemes###
-1、引言
-URL Schemes 应用在 iOS 上已经很久了。对于使用者来说，在沙盒机制下的 iOS 中，如果想做到一定程度上的自动化就不可避免地要用到 URL Schemes。但因为 URL Schemes 的使用方式不像传统 iOS 使用者接触到的图形界面那样可以直观地点来点去，造成了对它有兴趣的人（尤其是对英文有恐惧的人）一定程度上理解的困难。
-2
+      :last-child与:last-of-type
+同学们遇到过给同一组元素的最后一个元素设置css失效的情况吗？我遇到过，当时使用:last-child居然不起作用，看到名字不科学啊，明明是“最后一个元素”，那为什么设置CSS失效呢？今天来一探究竟吧
+
+
+先看一组:last-child正常工作的代码
+
+12345678910111213141516171819202122232425262728
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/URL-Schemes深度剖析（上）/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/-last-child与-last-of-type你只是会用，有研究过区别吗？/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/NSFileManager终极杀手/" title="link to post.title">NSFileManager终极杀手个App接口</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/H5性能优化方面的探索/" title="link to post.title">H5性能优化方面的探索</a></h2>
       <p class="excerpt">
     
-      NSFileManager
-想操作文件，该去了解下NSFileManager
+      H5性能优化方面的探索
+H5很重要，很重要，很重要，重要的事情必须重复多遍，H5的优点：跨平台、迭代快、开发体验好。缺点：加载慢，用户体验差。所以在接下来很长一段时间内我将会从H5的几个缺点发面去研究如何优化。
 
-注意：//小窍门：打印数组或者字典，里面包含中文，直接用%@打印会看不到中文，可用for遍历访问
-
-单例方法得到文件管理者对象
-
-1NSFileManager *fileManager = [NSFileManager defaultManager];
-
-判断是否存在指定的文件
-
-12345#define LogBoo
+## 
+一、缓存问题及其解决办法经常遇到一个问题，H5页面由于缓存问题经常在H5发布新版本之后客户端App看不到最新的效果，之前由于杂七杂八的问题项目工期紧没好好研究，最近抽空研究了下缓
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/NSFileManager终极杀手/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/10/10/在内存剖析对象/" title="link to post.title">在内存剖析对象</a></h2>
-      <p class="excerpt">
-    
-      对象在内存中的存储
-栈、堆、BSS、数据段、代码段是什么？
-
-栈（stack）：又称作堆栈，用来存储程序的局部变量（但不包括static声明的变量，static修饰的数据存放于数据段中）。除此之外，在函数被调用时，栈用来传递参数和返回值。
-
-堆（heap）：用于存储程序运行中被动态分配的内存段，它的大小并不固定，可动态的扩张和缩减。操作函数(malloc／free)
-
-BSS段（bss segme
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-10-10T06:04:27.000Z" class="post-list__meta--date date">2017-10-10</time> &#8226; <span class="post-list__meta--tags tags">于 
-  <a class="tag-link" href="/tags/home/">home</a>
-</span><a class="btn-border-small" href="/2017/10/10/在内存剖析对象/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2017/10/10/H5性能优化方面的探索/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -329,11 +334,11 @@ BSS段（bss segme
 
   <nav class="pagination" role="navigation">
     
-      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; 最近</a>
+      <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; Prev</a>
     
     <span class="pagination__page-number" >  2 / 4 </span>
     
-      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/3/">更早 &rarr;</a>
+      <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/3/">Next &rarr;</a>
     
   </nav>
 
